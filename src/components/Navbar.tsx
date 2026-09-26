@@ -101,7 +101,9 @@ export default function Navbar() {
             onClick={() => document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" })}
             className="hidden items-center gap-2 rounded-full bg-[#12999c] py-2 pl-5 pr-2 text-sm font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#18a9ac] sm:flex"
           >
-            Let's Talk{" "}
+            < a href="https://wa.me/+8801788392063" target="_blank" rel="noopener noreferrer">
+              Let's Talk
+            </a>
             <span className="grid size-8 place-items-center rounded-full bg-[#06333a]">
               <img alt="" className="block size-[14px]" src={imgArrow} />
             </span>

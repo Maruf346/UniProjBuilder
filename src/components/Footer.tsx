@@ -61,7 +61,14 @@ export default function Footer() {
             <div className="bg-[#081719] border border-[rgba(255,255,255,0.1)] border-solid flex gap-[12px] items-center pl-[25px] pr-[9px] py-[9px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#0a1f23] transition-colors w-fit">
               <div className="absolute bg-[rgba(255,255,255,0)] inset-[-1px] rounded-[9999px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" />
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-white whitespace-nowrap">
-                <p className="leading-[22.5px]">Get Started Now</p>
+                <a 
+                  href="https://wa.me/+8801788392063" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="leading-[22.5px]"
+                >
+                  Get Started Now
+                </a>
               </div>
               <div className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] relative rounded-[9999px] shrink-0 size-[36px] flex items-center justify-center">
                 <div className="relative shrink-0 size-[16px]">
@@ -98,9 +105,9 @@ export default function Footer() {
                 </div>
               </div>
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[14.5px] max-w-[320px]">
-                <p className="leading-[23.56px] mb-0">Building production-ready academic projects that</p>
-                <p className="leading-[23.56px] mb-0">exceed university standards & help students</p>
-                <p className="leading-[23.56px]">achieve distinction.</p>
+                <p className="leading-[23.56px] mb-0">Building production-ready academic projects</p>
+                <p className="leading-[23.56px] mb-0"> that exceed university standards &</p>
+                <p className="leading-[23.56px]"> help students achieve distinction.</p>
               </div>
             </div>
 
@@ -207,7 +214,9 @@ export default function Footer() {
                 </div>
               </div>
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#334155] text-[14px] whitespace-nowrap group-hover:text-[#18797d] transition-colors">
-                <p className="leading-[21px]">+1 (009) 544-7818</p>
+                <a href="tel:+8801788392063" className="leading-[21px]">
+                  +880 1788-392063
+                </a>
               </div>
             </div>
             <div className="flex gap-[10px] items-center cursor-pointer group">
@@ -217,7 +226,9 @@ export default function Footer() {
                 </div>
               </div>
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#334155] text-[14px] whitespace-nowrap group-hover:text-[#18797d] transition-colors">
-                <p className="leading-[21px]">hello@universityprojectbuilder.com</p>
+                <a href="mailto:universityprojectbuilder@gmail.com" className="leading-[21px]">
+                  universityprojectbuilder@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -226,7 +237,9 @@ export default function Footer() {
           <div className="flex gap-[10px] items-center">
             <div className="bg-[#cbd5e1] flex items-center justify-center rounded-[9999px] shrink-0 size-[32px] cursor-pointer hover:bg-[#94a3b8] transition-colors">
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#334155] text-[12px] text-center whitespace-nowrap">
-                <p className="leading-[16px]">f</p>
+                <a href="https://www.facebook.com/universityprojects" target="_blank" rel="noopener noreferrer" className="leading-[16px]">
+                  f
+                </a>
               </div>
             </div>
             <div className="bg-[#cbd5e1] flex items-center justify-center rounded-[9999px] shrink-0 size-[32px] cursor-pointer hover:bg-[#94a3b8] transition-colors">

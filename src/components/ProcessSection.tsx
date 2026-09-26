@@ -74,7 +74,7 @@ export default function ProcessSection() {
             <div className="bg-[#18797d] content-stretch flex gap-[12px] items-center pl-[28px] pr-[10px] py-[10px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#1a8a8f] transition-colors">
               <div className="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[9999px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)]" />
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-white whitespace-nowrap">
-                <p className="leading-[22.5px]">Request a Call</p>
+                <p className="leading-[22.5px]"> <a href="https://wa.me/+8801788392063" target="_blank" rel="noopener noreferrer">Request a Call</a></p>
               </div>
               <div className="bg-[#082b2f] content-stretch flex items-center justify-center relative rounded-[9999px] shrink-0 size-[36px]">
                 <div className="relative shrink-0 size-[16px]">

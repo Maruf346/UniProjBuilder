@@ -115,7 +115,9 @@ export default function FaqSection() {
                 </div>
               </div>
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[16px] text-white tracking-[-0.4px] w-full">
-                <p className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-[1px] decoration-solid leading-[24px] underline">1-888-452-1505</p>
+                <a href="tel:+8801788392063" className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-[1px] decoration-solid leading-[24px] underline">
+                  +880 1788-392063
+                </a>
               </div>
             </div>
           </div>
@@ -256,7 +258,14 @@ export default function FaqSection() {
                 <button className="bg-[#18797d] content-stretch flex gap-[12px] items-center pl-[28px] pr-[10px] py-[10px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#1a8a8f] transition-colors">
                   <div className="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[9999px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" />
                   <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-center text-white whitespace-nowrap">
-                    <p className="leading-[22.5px]">Send Message</p>
+                    <a 
+                      href="https://wa.me/+8801788392063" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="leading-[22.5px]"
+                    >
+                      Send Message
+                    </a>
                   </div>
                   <div className="bg-[#082b2f] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[36px]">
                     <div className="relative shrink-0 size-[16px]">

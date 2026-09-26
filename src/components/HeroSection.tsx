@@ -85,7 +85,7 @@ export default function HeroSection() {
                     d="M 58,58 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"
                   />
                 </defs>
-                <text fill="rgba(255,255,255,0.72)" fontSize="9.2" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" letterSpacing="2.8">
+                <text fill="rgba(255,255,255,0.72)" fontSize="9.2" fontFamily="'Plus Jakarta Sans', sans-serif" fontWeight="700" letterSpacing="4.1">
                   <textPath href="#heroTextCircle">SCROLL DOWN • EXPLORE MORE • </textPath>
                 </text>
               </svg>
