@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rowdies:wght@400&display=swap');
+
+@import 'tailwindcss';
+
+@font-face {
+  font-family: "Plus Jakarta Sans:Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://static.figma.com/font/PlusJakartaSans_wght__2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans:Medium";
+  font-weight: 500;
+  font-style: normal;
+  src: url("https://static.figma.com/font/PlusJakartaSans_wght__2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans:SemiBold";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://static.figma.com/font/PlusJakartaSans_wght__2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans:Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://static.figma.com/font/PlusJakartaSans_wght__2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans:ExtraBold";
+  font-weight: 800;
+  font-style: normal;
+  src: url("https://static.figma.com/font/PlusJakartaSans_wght__2") format("woff2");
+}
+
+@font-face {
+  font-family: "Rowdies:Regular";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://static.figma.com/font/Rowdies-Regular_2") format("woff2");
+}
+
+@font-face {
+  font-family: "Liberation Serif:Bold Italic";
+  font-weight: 700;
+  font-style: italic;
+  src: local("Georgia Bold Italic"), local("Georgia-BoldItalic"), local("Times New Roman Bold Italic");
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*:hover {
+  scrollbar-color: rgba(100,100,100,0.3) transparent;
+}

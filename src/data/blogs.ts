@@ -1,0 +1,10 @@
+export const blogFilters = ["All Stories (36)", "System Architecture", "Deep Learning & AI", "IoT & Hardware Prototyping", "Scopus / IEEE Research", "Viva Defense Guides"];
+
+export const blogStories = [
+  { day: "10", month: "MAR", category: "HARDWARE & EDGE", author: "By S. M. Farhan • IUT EEE", title: "Synthesizing High-Frequency Waveforms on Xilinx Artix-7: A Complete Verilog Implementation.", summary: "Overcoming clock-domain crossing metastability and creating clean LaTeX timing…", time: "8 MIN READ", image: "916be.png" },
+  { day: "05", month: "MAR", category: "NLP & VISION", author: "By Tahsin Kabir • DU CSE", title: "Fine-Tuning Bengali Transformers for Academic Text Classification.", summary: "A practical benchmark of domain adaptation, token budgets, and evaluation…", time: "11 MIN READ", image: "87b36.png" },
+  { day: "01", month: "MAR", category: "IOT & ANALYTICS", author: "By Fahim Hasan • BRACU", title: "Micro-Climate LoRaWAN Mesh: Engineering Solar Telemetry Nodes with Sub-mA Sleep Currents.", summary: "Deploying 12 field nodes with MQTT brokers and InfluxDB time-series dashboards under…", time: "9 MIN READ", image: "3c623.png" },
+  { day: "22", month: "FEB", category: "FULL-STACK SAAS", author: "By Rayan Chowdhury • NSU CSE", title: "Architecting a Distributed Healthcare EHR with Microservices & Zero-Knowledge Auth.", summary: "Implementing HIPAA-compliant cryptographic access control, Next.js 14 SSR, and Docker…", time: "10 MIN READ", image: "51bd3.png" },
+  { day: "18", month: "FEB", category: "COMPUTER VISION", author: "By Mehedi Hasan • AUST", title: "Autonomous Obstacle Detection Using YOLOv10 on Jetson Nano: Quantization Lessons.", summary: "Optimizing TensorRT FP16 pipelines to achieve 32 FPS on constrained edge compute during…", time: "7 MIN READ", image: "fb137.png" },
+  { day: "12", month: "FEB", category: "DEFENSE COACHING", author: "By Lead Academic Mentor", title: "The Viva Defense Masterclass: 25 Questions Academic Supervisors Always Ask.", summary: "A battle-tested checklist covering system scalability, database normalization proofs, and…", time: "15 MIN READ", image: "916be.png" },
+];

@@ -1,0 +1,10 @@
+{
+  "description": "Delivers a precise, user-friendly web app with a clean, organized structure for seamless navigation and efficient user interaction.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
