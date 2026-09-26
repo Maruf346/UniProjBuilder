@@ -25,26 +25,26 @@ export default function FaqSection() {
   });
 
   return (
-    <div className="bg-[#f2f4f3] content-stretch flex flex-col items-start px-[24px] py-[80px] relative shrink-0 w-full" data-node-id="1:672">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-[48px] max-w-[1400px] mx-auto relative shrink-0 w-full">
+    <div className="bg-[#eef3f2] content-stretch flex flex-col items-start px-[24px] py-[80px] relative shrink-0 w-full" data-node-id="1:672">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(420px,644px)_minmax(480px,700px)] gap-[48px] lg:gap-[96px] justify-center max-w-[1450px] mx-auto relative shrink-0 w-full">
         {/* FAQ accordion */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           transition={{ staggerChildren: 0.08 }}
-          className="lg:col-span-7 lg:col-start-6 content-stretch flex flex-col gap-[16px] items-start relative order-2 lg:order-2"
+          className="content-stretch flex flex-col gap-[16px] lg:gap-[20px] items-start relative order-2 lg:order-2"
         >
           {faqs.map((faq) => (
-            <motion.div key={faq.id} variants={faqItemVariants} className="bg-white border border-[rgba(226,232,240,0.8)] border-solid content-stretch flex flex-col items-start relative rounded-[12px] shrink-0 w-full overflow-hidden">
+            <motion.div key={faq.id} variants={faqItemVariants} className="bg-white border border-[rgba(226,232,240,0.8)] border-solid content-stretch flex flex-col items-start relative rounded-[8px] shrink-0 w-full overflow-hidden">
               <button
-                className="flex items-center justify-between px-[29px] py-[21px] w-full text-left"
+                className="flex min-h-[88px] items-center justify-between px-[32px] py-[22px] w-full text-left"
                 onClick={() => setOpenFaq(openFaq === faq.id ? null : faq.id)}
               >
-                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[#1e293b] text-[16px]">
-                  <p className="leading-[22px]">{faq.question}</p>
+                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[#1e293b] text-[19px]">
+                  <p className="leading-[26px]">{faq.question}</p>
                 </div>
-                <div className="border border-[#18797d] border-solid content-stretch flex items-center justify-center p-px relative rounded-[9999px] shrink-0 size-[32px] ml-4">
+                <div className="border-2 border-[#2f999c] border-solid content-stretch flex items-center justify-center p-px relative rounded-[9999px] shrink-0 size-[40px] ml-4">
                   <div className="relative shrink-0 size-[10.5px]">
                     <img
                       alt=""
@@ -82,7 +82,7 @@ export default function FaqSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.65}}
-          className="bg-[rgba(255,255,255,0)] lg:col-span-5 lg:col-start-1 h-auto lg:h-[580px] overflow-clip relative rounded-[24px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] order-1 lg:order-1"
+          className="bg-[rgba(255,255,255,0)] h-[560px] lg:h-[690px] overflow-clip relative rounded-[10px] order-1 lg:order-1"
         >
           {/* Background image with overlay */}
           <div aria-hidden className="absolute inset-0 pointer-events-none">
@@ -93,31 +93,32 @@ export default function FaqSection() {
           </div>
           <div className="absolute bg-gradient-to-t from-[rgba(0,0,0,0.4)] inset-0 to-[rgba(0,0,0,0.3)] via-1/2 via-[rgba(0,0,0,0)]" />
 
-          <div className="[word-break:break-word] absolute flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] left-[32px] text-[clamp(28px,3vw,42px)] text-white top-[60px] tracking-[-1.05px]">
+          <div className="[word-break:break-word] absolute flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] left-[36px] md:left-[42px] text-[clamp(34px,3.6vw,52px)] text-white top-[48px] md:top-[54px] tracking-[-1.05px]">
             <p className="leading-[1.15] mb-0">Need Help?</p>
             <p className="leading-[1.15]">Start Here...</p>
           </div>
 
           {/* Bottom teal card */}
-          <div className="absolute bg-[#18797d] bottom-0 flex flex-col gap-[16px] items-start px-[24px] py-[32px] right-0 rounded-tl-[24px] w-[260px]">
-            <div className="absolute bg-[rgba(255,255,255,0)] bottom-0 right-0 shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] top-0 w-[260px]" />
-            <div className="flex flex-col items-start relative shrink-0 w-full">
-              <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[20px] text-white w-full">
-                <p className="leading-[25px] mb-0">Get Started</p>
-                <p className="leading-[25px]">Free Call?</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-              <div className="bg-[#082b2f] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[48px]">
-                <div className="absolute bg-[rgba(255,255,255,0)] left-0 rounded-[9999px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] size-[48px] top-0" />
-                <div className="relative shrink-0 size-[16.5px]">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer19} />
+          <div className="absolute bottom-0 right-0 bg-white pl-[14px] pt-[14px] rounded-tl-[18px]">
+            <div className="bg-[#389392] flex flex-col gap-[38px] items-start px-[24px] py-[32px] rounded-[8px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] w-[246px]">
+              <div className="flex flex-col items-start relative shrink-0 w-full">
+                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[24px] text-white w-full">
+                  <p className="leading-[30px] mb-0">Get Started</p>
+                  <p className="leading-[30px]">Free Call?</p>
                 </div>
               </div>
-              <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[16px] text-white tracking-[-0.4px] w-full">
-                <a href="tel:+8801788392063" className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-[1px] decoration-solid leading-[24px] underline">
-                  +880 1788-392063
-                </a>
+              <div className="flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+                <div className="bg-[#082b2f] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[56px]">
+                  <div className="absolute bg-[rgba(255,255,255,0)] left-0 rounded-[9999px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] size-[56px] top-0" />
+                  <div className="relative shrink-0 size-[18px]">
+                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer19} />
+                  </div>
+                </div>
+                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[20px] text-white tracking-[-0.4px] w-full">
+                  <a href="tel:+8801788392063" className="[text-decoration-skip-ink:none] [text-underline-position:from-font] decoration-[1px] decoration-solid leading-[28px] underline">
+                    +880 1788-392063
+                  </a>
+                </div>
               </div>
             </div>
           </div>
