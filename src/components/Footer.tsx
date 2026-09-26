@@ -8,8 +8,7 @@ const imgSvg13 = `${assetPathPrefix}/3feed.svg`;
 const imgContainer22 = `${assetPathPrefix}/7a19c.svg`;
 const imgContainer23 = `${assetPathPrefix}/d2c9e.svg`;
 const imgContainer24 = `${assetPathPrefix}/5cb60.svg`;
-const imgHeroBg = `${assetPathPrefix}/87b36.png`;
-const img1TopCTA = `${assetPathPrefix}/727f3.svg`;
+const imgTopCTA = `${assetPathPrefix}/footer-cta.png`;
 
 const servicesLinks = [
   "Project Development",
@@ -31,70 +30,66 @@ const resourcesLinks = [
 
 export default function Footer() {
   return (
-    <div id="footer" className="bg-[#eef3f2] content-stretch flex flex-col items-start overflow-clip py-[48px] relative shrink-0 w-full" data-node-id="1:898">
-      {/* Diagonal stripe texture */}
+    <div id="footer" className="bg-[#eef3f2] flex flex-col items-start overflow-clip pt-[40px] pb-[32px] relative shrink-0 w-full" data-node-id="1:898">
+      {/* The footer surface starts behind the overlapping CTA. */}
       <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(145.39deg, rgba(24,121,125,0.05) 0%, rgba(24,121,125,0.05) 2.95%, rgba(24,121,125,0) 2.95%, rgba(24,121,125,0) 47.14%, rgba(24,121,125,0.05) 47.14%, rgba(24,121,125,0.05) 50.09%, rgba(24,121,125,0) 50.09%, rgba(24,121,125,0) 94.28%, rgba(24,121,125,0.05) 94.28%, rgba(24,121,125,0.05) 97.23%, rgba(24,121,125,0) 97.23%, rgba(24,121,125,0) 100%)",
-        }}
-      />
+        aria-hidden="true"
+        className="absolute inset-x-[10px] top-[150px] bottom-[10px] overflow-hidden rounded-[8px] bg-[#d8e6e7] pointer-events-none"
+      >
+        <div
+          className="absolute left-0 top-0 h-[460px] w-[300px] opacity-60"
+          style={{
+            backgroundImage: "repeating-radial-gradient(ellipse at -160% -45%, transparent 0 10px, rgba(90,130,132,0.24) 11px 12px, transparent 13px 18px)",
+            maskImage: "linear-gradient(120deg, black, transparent 72%)",
+          }}
+        />
+        <div
+          className="absolute right-0 bottom-0 h-[500px] w-[320px] opacity-60"
+          style={{
+            backgroundImage: "repeating-radial-gradient(ellipse at 260% 145%, transparent 0 10px, rgba(90,130,132,0.24) 11px 12px, transparent 13px 18px)",
+            maskImage: "linear-gradient(300deg, black, transparent 72%)",
+          }}
+        />
+      </div>
 
-      <div className="content-stretch flex flex-col items-start max-w-[1400px] mx-auto px-[40px] relative shrink-0 w-full">
+      <div className="flex flex-col items-start max-w-[1400px] mx-auto px-[24px] sm:px-[40px] relative shrink-0 w-full">
         {/* Top CTA Card */}
         <div
-          className="border border-[rgba(255,255,255,0.2)] border-solid flex flex-col md:flex-row items-center justify-between min-h-[300px] overflow-clip p-[49px] relative rounded-[24px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] shrink-0 w-full gap-8"
-          style={{ backgroundImage: "linear-gradient(to right, #14666a, #18797d 50%, #1e898e)" }}
+          className="bg-[#1e8a8a] isolate min-h-[300px] lg:min-h-[340px] overflow-hidden relative rounded-[8px] shrink-0 w-full"
         >
-          <div className="absolute bg-gradient-to-b from-[rgba(255,255,255,0.1)] inset-0 to-[rgba(255,255,255,0)]" />
-          <img alt="" className="absolute block inset-0 max-w-none size-full object-cover pointer-events-none" src={img1TopCTA} />
-
           {/* Left content */}
-          <div className="max-w-[576px] relative shrink-0">
-            <div className="flex flex-col items-start pb-[32px]">
-              <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[clamp(32px,3vw,44px)] text-white tracking-[-1.1px]">
-                <p className="leading-[1] mb-0">Let's Build Future</p>
-                <p className="leading-[1]">Together.</p>
+          <div className="relative z-10 w-full md:w-[58%] px-[24px] py-[32px] sm:px-[40px] lg:px-[52px] lg:py-[48px]">
+            <div className="flex flex-col items-start pb-[22px]">
+              <div className="font-['Plus_Jakarta_Sans:Medium'] font-medium leading-[1.12] text-[32px] sm:text-[40px] lg:text-[52px] xl:text-[60px] text-white tracking-normal">
+                <p className="mb-0">Let's Build Future</p>
+                <p>Together.</p>
               </div>
             </div>
-            <div className="bg-[#081719] border border-[rgba(255,255,255,0.1)] border-solid flex gap-[12px] items-center pl-[25px] pr-[9px] py-[9px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#0a1f23] transition-colors w-fit">
-              <div className="absolute bg-[rgba(255,255,255,0)] inset-[-1px] rounded-[9999px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" />
-              <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-white whitespace-nowrap">
-                <a 
+            <a
                   href="https://wa.me/+8801788392063" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="leading-[22.5px]"
+                  className="bg-[#081719] flex gap-[12px] items-center pl-[22px] pr-[4px] py-[4px] rounded-full hover:bg-[#0a1f23] transition-colors w-fit font-['Plus_Jakarta_Sans:SemiBold'] font-semibold text-[14px] leading-[22px] text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   Get Started Now
-                </a>
-              </div>
-              <div className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] relative rounded-[9999px] shrink-0 size-[36px] flex items-center justify-center">
-                <div className="relative shrink-0 size-[16px]">
+              <span className="bg-white rounded-full shrink-0 size-[36px] flex items-center justify-center">
+                <span className="relative shrink-0 size-[16px]">
                   <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSvg8} />
-                </div>
-              </div>
-            </div>
+                </span>
+              </span>
+            </a>
           </div>
 
-          {/* Right image card */}
-          <div className="h-[250px] relative shrink-0 w-full md:w-[450px]">
-            <div className="flex items-center justify-end h-full">
-              <div className="bg-[rgba(8,43,47,0.3)] border-2 border-[rgba(255,255,255,0.3)] border-solid flex flex-1 flex-col h-full items-start justify-center overflow-clip p-[2px] relative rounded-bl-[16px] rounded-br-[50px] rounded-tl-[50px] rounded-tr-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
-                <div className="flex-1 min-h-px relative w-full">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <img alt="" className="absolute h-full left-0 max-w-none top-0 w-full object-cover" src={imgHeroBg} />
-                  </div>
-                  <div className="absolute bg-gradient-to-t from-[rgba(19,78,74,0.4)] inset-0 to-[rgba(19,78,74,0)] via-1/2 via-[rgba(19,78,74,0)]" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <img
+            alt=""
+            src={imgTopCTA}
+            className="block w-full aspect-[486/254] object-cover md:absolute md:inset-y-0 md:right-0 md:h-full md:w-1/2 md:aspect-auto pointer-events-none"
+            style={{ maskImage: "linear-gradient(to right, transparent, black 16%)" }}
+          />
         </div>
 
         {/* 4-Column Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[32px] py-[64px] w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-[32px] pt-[56px] md:pt-[80px] pb-[64px] w-full">
           {/* Column 1: Brand */}
           <div className="lg:col-span-4 flex flex-col items-start justify-between pr-[16px]">
             <div className="flex flex-col gap-[19px] items-start pb-[28px] w-full">
@@ -192,7 +187,7 @@ export default function Footer() {
               </div>
               <div className="flex gap-[8px] items-center">
                 <div className="bg-white border border-[#cbd5e1] border-solid relative rounded-[4px] shrink-0 size-[16px]" />
-                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[13px] whitespace-nowrap">
+                <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative min-w-0 text-[#475569] text-[13px]">
                   <p>
                     <span className="leading-[19.5px]">Agree to our </span>
                     <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold leading-[19.5px] text-[#1e293b]">Terms & Condition?</span>
@@ -204,10 +199,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Sub-Footer */}
-        <div className="border-[rgba(203,213,225,0.7)] border-solid border-t flex flex-col md:flex-row items-start md:items-center justify-between pt-[33px] gap-4 w-full">
+        <div className="border-[rgba(90,130,132,0.18)] border-solid border-y flex flex-col md:flex-row md:flex-wrap items-start md:items-center justify-between py-[20px] gap-4 w-full">
           {/* Phone & Email */}
           <div className="flex flex-wrap gap-[24px] items-center">
-            <div className="flex gap-[10px] items-center cursor-pointer group">
+            <div className="flex min-w-0 max-w-full gap-[10px] items-center cursor-pointer group">
               <div className="bg-[#18797d] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[32px]">
                 <div className="relative shrink-0 size-[12px]">
                   <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer22} />
@@ -219,13 +214,13 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="flex gap-[10px] items-center cursor-pointer group">
+            <div className="flex min-w-0 max-w-full gap-[10px] items-center cursor-pointer group">
               <div className="bg-[#18797d] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[32px]">
                 <div className="relative shrink-0" style={{ width: "13.333px", height: "10.667px" }}>
                   <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer23} />
                 </div>
               </div>
-              <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#334155] text-[14px] whitespace-nowrap group-hover:text-[#18797d] transition-colors">
+              <div className="[overflow-wrap:anywhere] min-w-0 flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative text-[#334155] text-[14px] group-hover:text-[#18797d] transition-colors">
                 <a href="mailto:universityprojectbuilder@gmail.com" className="leading-[21px]">
                   universityprojectbuilder@gmail.com
                 </a>
@@ -260,9 +255,9 @@ export default function Footer() {
           </div>
 
           {/* Copyright + Scroll to top */}
-          <div className="flex gap-[16px] items-center">
-            <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[14px] whitespace-nowrap">
-              <p className="whitespace-pre">
+          <div className="flex max-w-full gap-[16px] items-center">
+            <div className="[word-break:break-word] min-w-0 flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative text-[#475569] text-[14px]">
+              <p className="whitespace-pre-wrap">
                 <span className="leading-[21px]">© 2026 </span>
                 <span className="font-['Plus_Jakarta_Sans:Regular'] font-medium leading-[21px]">University Project Builder</span>
                 <span className="leading-[21px]">  .  All right reserved</span>
