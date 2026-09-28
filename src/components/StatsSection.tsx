@@ -2,9 +2,9 @@ import { motion, type Variants } from "framer-motion";
 
 const assetPathPrefix = "/assets";
 const imgResearchEngineeringLab = `${assetPathPrefix}/vid.jpg`;
-const imgResearcher1 = `${assetPathPrefix}/952f2.png`;
-const imgResearcher2 = `${assetPathPrefix}/3c623.png`;
-const imgResearcher3 = `${assetPathPrefix}/c0a09.png`;
+const imgResearcher1 = `${assetPathPrefix}/R1.jpg`;
+const imgResearcher2 = `${assetPathPrefix}/R2.jpg`;
+const imgResearcher3 = `${assetPathPrefix}/R3.jpg`;
 const imgContainer = `${assetPathPrefix}/66f34.svg`;
 const imgContainer1 = `${assetPathPrefix}/712f9.svg`;
 const imgContainer2 = `${assetPathPrefix}/060df.svg`;
