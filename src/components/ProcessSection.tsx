@@ -14,20 +14,20 @@ interface ProcessCard {
 const cards: ProcessCard[] = [
   {
     num: "01",
-    title: "Discovery & Planning",
-    description: "The first step in our process is understanding your unique business needs, objectives, and academic challenges.",
+    title: "Tell Us Your Project",
+    description: "Just share your topic, deadline, and what your supervisor expects. We listen carefully so we know exactly what you need — no jargon, no confusion.",
     showArrow: true,
   },
   {
     num: "02",
-    title: "Execution & Delivery",
-    description: "Once the plan is in place, our team moves forward with execution, turning strategies into action to deliver production excellence.",
+    title: "We Build It Together",
+    description: "Our team gets to work on your project — coding, designing, writing, or prototyping — while keeping you in the loop every step of the way.",
     showArrow: true,
   },
   {
     num: "03",
-    title: "Review & Support",
-    description: "After project completion, we conduct a thorough review to ensure everything aligns with your goals, criteria, and requirements.",
+    title: "You Submit With Confidence",
+    description: "We review everything with you before the deadline. Need a quick fix or defense prep? We're still right here until you walk out of that exam room.",
     showArrow: false,
   },
 ];
@@ -56,7 +56,7 @@ export default function ProcessSection() {
               </div>
             </div>
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[clamp(36px,3.5vw,50px)] tracking-[-1.25px]">
-              <p className="leading-[1.1] mb-0">Seamless Process,</p>
+              <p className="leading-[1.1] mb-0">Guided Process,</p>
               <p className="leading-[1.1]">
                 <span>Great </span>
                 <span className="font-['Plus_Jakarta_Sans:Regular'] font-normal text-[#94a3b8]">Results.</span>
@@ -65,9 +65,9 @@ export default function ProcessSection() {
           </div>
           <div className="max-w-[384px] relative shrink-0">
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[15px]">
-              <p className="leading-[24.38px] mb-0">Developing personalized academic roadmaps and</p>
-              <p className="leading-[24.38px] mb-0">customer journeys to increase satisfaction, project</p>
-              <p className="leading-[24.38px]">precision, and defense loyalty.</p>
+              <p className="leading-[24.38px] mb-0">Helping students plan and build the right</p>
+              <p className="leading-[24.38px] mb-0">academic project with less confusion</p>
+              <p className="leading-[24.38px]"> — from idea to final presentation.</p>
             </div>
           </div>
           <div className="content-stretch flex flex-col items-start relative shrink-0">
