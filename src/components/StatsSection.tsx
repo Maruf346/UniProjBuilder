@@ -1,7 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 
 const assetPathPrefix = "/assets";
-const imgResearchEngineeringLab = `${assetPathPrefix}/fb137.png`;
+const imgResearchEngineeringLab = `${assetPathPrefix}/vid.jpg`;
 const imgResearcher1 = `${assetPathPrefix}/952f2.png`;
 const imgResearcher2 = `${assetPathPrefix}/3c623.png`;
 const imgResearcher3 = `${assetPathPrefix}/c0a09.png`;
@@ -29,7 +29,7 @@ export default function StatsSection() {
           transition={{ staggerChildren: 0.12 }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-[24px] w-full"
         >
-          {/* 98% Card */}
+          {/* 30+ Card */}
           <motion.div variants={statCardVariants} className="bg-white border border-[rgba(226,232,240,0.6)] border-solid lg:col-span-4 content-stretch drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex flex-col items-start justify-between min-h-[300px] p-[33px] relative rounded-[16px]">
             <div className="flex items-start justify-between w-full">
               <div className="bg-[#d9eaeb] content-stretch flex items-center justify-center relative rounded-[9999px] shrink-0 size-[56px]">
@@ -44,10 +44,10 @@ export default function StatsSection() {
             <div className="flex flex-col items-start pt-[32px] w-full">
               <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#64748b] text-[16px] w-full">
-                  <p className="leading-[24px]">Projects Completed.</p>
+                  <p className="leading-[24px]">Student Projects</p>
                 </div>
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[72px] tracking-[-1.8px] w-full">
-                  <p className="leading-[72px]">98%</p>
+                  <p className="leading-[72px]">30+</p>
                 </div>
               </div>
             </div>
@@ -66,18 +66,18 @@ export default function StatsSection() {
             </div>
             <div className="relative w-full mb-[16px]">
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[clamp(28px,3vw,42px)] tracking-[-1.05px]">
-                <p className="leading-[1.15] mb-0">Driving into</p>
-                <p className="leading-[1.15] mb-0">Excellence &</p>
-                <p className="leading-[1.15] mb-0">Innovation: Your</p>
-                <p className="leading-[1.15] mb-0">Trusted Partner for</p>
-                <p className="leading-[1.15] mb-0">Sustainable Academic</p>
-                <p className="leading-[1.15]">Success.</p>
+                <p className="leading-[1.15] mb-0">Helping students</p>
+                <p className="leading-[1.15] mb-0">build projects,</p>
+                <p className="leading-[1.15] mb-0">write reports,</p>
+                <p className="leading-[1.15] mb-0">and prepare for</p>
+                <p className="leading-[1.15] mb-0">confident final</p>
+                <p className="leading-[1.15]">defense.</p>
               </div>
             </div>
             <div className="flex flex-col items-start w-full">
               <div className="flex gap-[12px] items-center cursor-pointer group">
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[15px] whitespace-nowrap group-hover:text-[#18797d] transition-colors">
-                  <p className="leading-[22.5px]">Learn More</p>
+                  <p className="leading-[22.5px]">See How</p>
                 </div>
                 <div className="bg-[#0f172a] content-stretch drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[32px]">
                   <div className="relative shrink-0 size-[10px]">
@@ -155,9 +155,9 @@ export default function StatsSection() {
             </div>
             <div className="flex flex-col items-start pt-[32px] w-full">
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[24px] text-white tracking-[-0.6px]">
-                <p className="leading-[33px] mb-0">We have 100+ happy</p>
-                <p className="leading-[33px] mb-0">researchers &</p>
-                <p className="leading-[33px]">customer.</p>
+                <p className="leading-[33px] mb-0">Guided 100+</p>
+                <p className="leading-[33px] mb-0">students through</p>
+                <p className="leading-[33px]">final projects.</p>
               </div>
             </div>
           </motion.div>
@@ -177,10 +177,10 @@ export default function StatsSection() {
             <div className="flex flex-col items-start pt-[32px] w-full">
               <div className="flex flex-col gap-[4px] items-start w-full">
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#64748b] text-[16px] w-full">
-                  <p className="leading-[24px]">Reach Worldwide</p>
+                  <p className="leading-[24px]">Study Hours Saved</p>
                 </div>
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[72px] tracking-[-1.8px] w-full">
-                  <p className="leading-[72px]">20M</p>
+                  <p className="leading-[72px]">200+</p>
                 </div>
               </div>
             </div>
@@ -201,10 +201,10 @@ export default function StatsSection() {
             <div className="flex flex-col items-start pt-[32px] w-full">
               <div className="flex flex-col gap-[4px] items-start w-full">
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Medium'] font-medium justify-center leading-[0] relative shrink-0 text-[#64748b] text-[16px] w-full">
-                  <p className="leading-[24px]">Faster Growth</p>
+                  <p className="leading-[24px]">Average Rating</p>
                 </div>
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[72px] tracking-[-1.8px] w-full">
-                  <p className="leading-[72px]">8.5X</p>
+                  <p className="leading-[72px]">8.5/10</p>
                 </div>
               </div>
             </div>
