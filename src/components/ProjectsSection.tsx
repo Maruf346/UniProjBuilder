@@ -1,9 +1,10 @@
 import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { projects } from "../data/projects";
 
 const assetPathPrefix = "/assets";
 const imgSvg5 = `${assetPathPrefix}/0aec9.svg`;
+const projectsPerPage = 4;
 
 const filters = [
   { key: "all", label: "All Fields" },
@@ -19,7 +20,28 @@ const cardVariants: Variants = {
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
-  const filtered = activeFilter === "all" ? projects : projects.filter((p) => p.filter === activeFilter);
+  const [activePage, setActivePage] = useState(0);
+  const filtered = useMemo(
+    () => (activeFilter === "all" ? projects : projects.filter((p) => p.filter === activeFilter)),
+    [activeFilter],
+  );
+  const totalPages = Math.max(1, Math.ceil(filtered.length / projectsPerPage));
+  const currentPage = Math.min(activePage, totalPages - 1);
+  const visibleProjects = filtered.slice(currentPage * projectsPerPage, (currentPage + 1) * projectsPerPage);
+
+  useEffect(() => {
+    setActivePage(0);
+  }, [activeFilter]);
+
+  useEffect(() => {
+    if (totalPages <= 1) return;
+
+    const timer = window.setInterval(() => {
+      setActivePage((page) => (page + 1) % totalPages);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [totalPages]);
 
   return (
     <div id="projects" className="bg-[#f8faf9] content-stretch flex flex-col items-start py-[96px] relative shrink-0 w-full" data-node-id="1:384">
@@ -63,12 +85,11 @@ export default function ProjectsSection() {
         {/* Projects grid */}
         <motion.div
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
+          animate="show"
           transition={{ staggerChildren: 0.13 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] w-full"
         >
-          {filtered.map((project) => (
+          {visibleProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={cardVariants}
@@ -141,9 +162,19 @@ export default function ProjectsSection() {
 
         {/* Pagination dots */}
         <div className="flex gap-[8px] items-center justify-center w-full pt-[8px]">
-          <div className="bg-[#18797d] h-[8px] relative rounded-[9999px] shrink-0 w-[32px]" />
-          <div className="bg-[#cbd5e1] relative rounded-[9999px] shrink-0 size-[8px]" />
-          <div className="bg-[#cbd5e1] relative rounded-[9999px] shrink-0 size-[8px]" />
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              aria-label={`Show project page ${index + 1}`}
+              onClick={() => setActivePage(index)}
+              className={
+                currentPage === index
+                  ? "bg-[#18797d] h-[8px] relative rounded-[9999px] shrink-0 w-[32px] cursor-pointer"
+                  : "bg-[#cbd5e1] relative rounded-[9999px] shrink-0 size-[8px] cursor-pointer"
+              }
+            />
+          ))}
         </div>
       </div>
     </div>
