@@ -72,7 +72,7 @@ export default function Navbar() {
 
         <button onClick={() => go("Home")} className="relative flex items-center gap-2 text-left">
           <img src={logo} alt="University Project Builder" className="h-10 w-auto object-contain" />
-          <span className="hidden font-['Rowdies:Regular'] text-[11px] uppercase leading-[14px] tracking-[1px] text-white/70 sm:block">
+          <span className="hidden font-['Plus_Jakarta_Sans:ExtraBold'] text-[12px] uppercase leading-[14px] tracking-[1px] text-white/100 sm:block">
             University project<br />Builder
           </span>
         </button>
