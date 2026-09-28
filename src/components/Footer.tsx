@@ -1,6 +1,6 @@
 const assetPathPrefix = "/assets";
 const imgSvg8 = `${assetPathPrefix}/bf9ed.svg`;
-const imgLogo = `${assetPathPrefix}/logo.png`;
+const imgLogo = `${assetPathPrefix}/blogo.png`;
 const imgSvg10 = `${assetPathPrefix}/3543d.svg`;
 const imgSvg11 = `${assetPathPrefix}/75440.svg`;
 const imgSvg12 = `${assetPathPrefix}/d9039.svg`;
@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col items-start justify-between pr-[16px]">
             <div className="flex flex-col gap-[19px] items-start pb-[28px] w-full">
               <div className="flex gap-[12px] items-center">
-                <img alt="University Project Builder" src={imgLogo} className="h-[44px] w-auto object-contain" />
+                <img alt="University Project Builder" src={imgLogo} className="h-[84px] w-auto object-contain" />
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[18px] tracking-[-0.4px]">
                   <p className="leading-[24px]">University Project<br />Builder</p>
                 </div>
