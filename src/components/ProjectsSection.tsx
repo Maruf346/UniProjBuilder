@@ -22,7 +22,7 @@ export default function ProjectsSection() {
   const filtered = activeFilter === "all" ? projects : projects.filter((p) => p.filter === activeFilter);
 
   return (
-    <div className="bg-[#f8faf9] content-stretch flex flex-col items-start py-[96px] relative shrink-0 w-full" data-node-id="1:384">
+    <div id="projects" className="bg-[#f8faf9] content-stretch flex flex-col items-start py-[96px] relative shrink-0 w-full" data-node-id="1:384">
       <div className="content-stretch flex flex-col gap-[40px] items-start max-w-[1280px] mx-auto px-[24px] relative shrink-0 w-full">
         {/* Section Header */}
         <motion.div

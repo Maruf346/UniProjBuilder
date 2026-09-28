@@ -24,9 +24,37 @@ export default function Navbar() {
 
   const go = (item: string) => {
     setOpen(false);
-    if (item === "Blog") window.location.href = "/blog";
-    else if (item === "Home") window.location.href = "/";
-    else document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    const isHome = window.location.pathname === "/" || window.location.pathname === "";
+
+    if (item === "Blog") {
+      window.location.href = "/blog";
+    } else if (item === "Home") {
+      if (!isHome) {
+        window.location.href = "/";
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (item === "Services") {
+      if (!isHome) {
+        window.location.href = "/#solutions";
+      } else {
+        document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (item === "Portfolio") {
+      if (!isHome) {
+        window.location.href = "/#projects";
+      } else {
+        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (item === "Contact") {
+      if (!isHome) {
+        window.location.href = "/#footer";
+      } else {
+        document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -54,18 +82,15 @@ export default function Navbar() {
             <button
               key={item}
               onClick={() => go(item)}
-              className="group relative flex items-center gap-1 text-[14px] font-semibold text-white/85 transition hover:text-white"
+              className="group relative flex items-center text-[14px] font-semibold text-white/85 transition hover:text-white cursor-pointer"
             >
               {item}
-              {item !== "Contact" && (
-                <span className="text-white/40 transition group-hover:translate-y-0.5">⌄</span>
-              )}
             </button>
           ))}
         </div>
 
         <div className="relative flex items-center gap-3">
-          <div className="relative hidden md:block">
+          {/* <div className="relative hidden md:block">
             <button
               aria-label="Search"
               onClick={() => setSearchOpen(!searchOpen)}
@@ -96,7 +121,7 @@ export default function Navbar() {
                 </motion.form>
               )}
             </AnimatePresence>
-          </div>
+          </div> */}
           <button
             onClick={() => document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" })}
             className="hidden items-center gap-2 rounded-full bg-[#12999c] py-2 pl-5 pr-2 text-sm font-bold text-white shadow-lg shadow-black/20 transition hover:bg-[#18a9ac] sm:flex"
