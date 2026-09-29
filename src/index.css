@@ -6,6 +6,10 @@
   html, body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+  }
 }
 
 @font-face {

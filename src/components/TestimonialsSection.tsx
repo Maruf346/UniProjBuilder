@@ -126,10 +126,11 @@ export default function TestimonialsSection() {
                 {/* Author */}
                 <div className="border-[#e2e8f0] border-dashed border-t relative shrink-0 w-full">
                   <div className="flex gap-[14px] items-center pt-[25px]">
-                    <div className="relative rounded-[9999px] shrink-0 size-[48px] overflow-hidden bg-[#e2e8f0] flex items-center justify-center">
+                    <div className="relative rounded-full shrink-0 size-[48px] overflow-hidden bg-[#e2e8f0] border border-[#cbd5e1] flex items-center justify-center transform-gpu">
                       <img
                         alt={t.name}
-                        className="absolute h-full left-0 max-w-none top-0 w-full object-cover"
+                        className="size-full object-cover object-center rounded-full"
+                        style={{ imageRendering: "auto" }}
                         src={t.avatar}
                         onError={(e) => {
                           const target = e.currentTarget;

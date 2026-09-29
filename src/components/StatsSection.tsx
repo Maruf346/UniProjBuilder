@@ -125,31 +125,18 @@ export default function StatsSection() {
             </div>
             {/* Researcher avatars */}
             <div className="flex items-center relative shrink-0 w-full">
-              <div className="max-w-[320px] mr-[-8px] relative rounded-[9999px] shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px]">
-                <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[9999px]">
-                  <img alt="" className="absolute left-0 max-w-none size-full top-0 object-cover" src={imgResearcher1} />
-                </div>
+              <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[3] transform-gpu">
+                <img alt="Researcher 1" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher1} />
               </div>
-              <div className="max-w-[312px] mr-[-8px] relative shrink-0 size-[48px]">
-                <div className="max-w-[320px] relative rounded-[9999px] shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px]">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[9999px]">
-                    <img alt="" className="absolute h-full left-0 max-w-none top-0 w-full object-cover" src={imgResearcher2} />
-                  </div>
-                </div>
+              <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[2] transform-gpu">
+                <img alt="Researcher 2" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher2} />
               </div>
-              <div className="max-w-[312px] mr-[-8px] relative shrink-0 size-[48px]">
-                <div className="max-w-[320px] relative rounded-[9999px] shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px]">
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[9999px]">
-                    <img alt="" className="absolute h-full left-0 max-w-none top-0 w-full object-cover" src={imgResearcher3} />
-                  </div>
-                </div>
+              <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[1] transform-gpu">
+                <img alt="Researcher 3" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher3} />
               </div>
-              <div className="relative shrink-0 size-[48px]">
-                <div className="bg-[rgba(15,23,42,0.9)] content-stretch flex items-center justify-center relative rounded-[9999px] shrink-0 size-[48px]">
-                  <div className="-translate-y-1/2 absolute bg-[rgba(255,255,255,0)] left-0 rounded-[9999px] shadow-[0px_0px_0px_2px_white] size-[48px] top-1/2" />
-                  <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[14px] text-center text-white whitespace-nowrap">
-                    <p className="leading-[20px]">+</p>
-                  </div>
+              <div className="relative shrink-0 size-[48px] z-[0]">
+                <div className="bg-[rgba(15,23,42,0.9)] flex items-center justify-center relative rounded-full shrink-0 size-[48px] shadow-[0px_0px_0px_2px_white]">
+                  <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold text-[15px] text-white">+</span >
                 </div>
               </div>
             </div>
