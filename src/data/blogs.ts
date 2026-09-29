@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
     author: "Engr. Tanvir Ahmed",
     authorRole: "Senior Academic Mentor",
     time: "8 min read",
-    image: "916be.png",
+    image: "viva.jpg",
     featured: true,
     summary: "A practical guide to acing your university final year project defense. Master how to explain your architecture, justify technical decisions, and answer tough panel inquiries.",
     tags: ["Viva Defense", "Final Year Project", "CSE", "University Thesis"],
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
     author: "Rafiul Islam",
     authorRole: "CSE Alumnus & Tech Lead",
     time: "7 min read",
-    image: "51bd3.png",
+    image: "cse.jpg",
     summary: "From selecting an approved topic to writing proper documentation and creating a clean MVP. Everything university students need to know to complete their project on time.",
     tags: ["CSE Projects", "Web Development", "Software Engineering", "Capstone"],
     content: {
@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
     author: "Tahsin Kabir",
     authorRole: "ML Researcher",
     time: "9 min read",
-    image: "87b36.png",
+    image: "ml.jpg",
     summary: "A practical guide on dataset preparation, transfer learning models, training metrics, and how to present benchmark graphs that satisfy your thesis panel.",
     tags: ["Machine Learning", "Deep Learning", "Python", "Thesis Project"],
     content: {
@@ -194,7 +194,7 @@ export const blogPosts: BlogPost[] = [
     author: "Fahim Hasan",
     authorRole: "Embedded Systems Engineer",
     time: "6 min read",
-    image: "3c623.png",
+    image: "87b36.png",
     summary: "Common hardware mistakes in student IoT projects — from voltage regulator overheating to MQTT broker connection drops — and how to fix them before live demo day.",
     tags: ["IoT", "ESP32", "Arduino", "Embedded Systems", "Hardware"],
     content: {
@@ -235,7 +235,7 @@ export const blogPosts: BlogPost[] = [
     author: "Dr. Nazmul Haque",
     authorRole: "Academic Reviewer",
     time: "8 min read",
-    image: "fb137.png",
+    image: "doc.jpg",
     summary: "A foolproof chapter-by-chapter blueprint for your final university report. Learn how to format literature reviews, methodology diagrams, and avoid plagiarism issues.",
     tags: ["Academic Writing", "IEEE Formatting", "Literature Review", "Research Paper"],
     content: {
@@ -279,7 +279,7 @@ export const blogPosts: BlogPost[] = [
     author: "Sadia Akter",
     authorRole: "Software Engineer",
     time: "5 min read",
-    image: "916be.png",
+    image: "web.jpg",
     summary: "Confused about whether to build a full-stack SaaS, a deep learning research paper, or an IoT hardware prototype? Compare difficulty, timelines, and career benefits.",
     tags: ["Project Ideas", "Career Advice", "CSE", "IT Students"],
     content: {
