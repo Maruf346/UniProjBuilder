@@ -13,8 +13,6 @@ const asset = (name: string) => `/assets/${name}`;
 export default function BlogDetails({ slug }: BlogDetailsProps) {
   const post = blogPosts.find((p) => p.slug === slug) || blogPosts[0];
 
-  const [activeTab, setActiveTab] = useState<string>("overview");
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [slug]);
@@ -97,7 +95,7 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
                     alert("Link copied to clipboard!");
                   }
                 }}
-                className="px-3.5 py-1.5 rounded-full border border-[#cbd5e1] text-xs font-semibold text-[#475569] hover:bg-[#f1f5f9] transition"
+                className="px-3.5 py-1.5 rounded-full border border-[#cbd5e1] text-xs font-semibold text-[#475569] hover:bg-[#f1f5f9] transition cursor-pointer"
               >
                 Share
               </button>
@@ -112,35 +110,35 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
             </div>
           </div>
 
-          {/* Benchmark Metrics Cards Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            <div className="bg-white rounded-xl p-4 border border-[#e2e8f0] shadow-sm">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-[#64748b]">AVERAGE LATENCY</div>
-              <div className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] mt-1">18.2 ms</div>
-              <div className="text-[11px] text-[#10b981] font-semibold mt-0.5">↓ 74% vs unoptimized</div>
+          {/* Dynamic Benchmark Metrics Cards Row */}
+          {post.metrics && post.metrics.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+              {post.metrics.map((m, idx) => (
+                <div key={idx} className="bg-white rounded-xl p-4 border border-[#e2e8f0] shadow-sm">
+                  <div className="text-[10px] font-bold tracking-widest uppercase text-[#64748b]">
+                    {m.label}
+                  </div>
+                  <div
+                    className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold mt-1"
+                    style={{ color: m.color || "#0f172a" }}
+                  >
+                    {m.value}
+                  </div>
+                  {m.subtext && (
+                    <div className="text-[11px] text-[#64748b] font-medium mt-0.5">
+                      {m.subtext}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="bg-white rounded-xl p-4 border border-[#e2e8f0] shadow-sm">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-[#64748b]">MEMORY HEAP</div>
-              <div className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] mt-1">340 MB</div>
-              <div className="text-[11px] text-[#64748b] font-medium mt-0.5">Zero-copy shared buffer</div>
-            </div>
-            <div className="bg-white rounded-xl p-4 border border-[#e2e8f0] shadow-sm">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-[#64748b]">POSE DRIFT ERROR</div>
-              <div className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#005f62] mt-1">0.12%</div>
-              <div className="text-[11px] text-[#10b981] font-semibold mt-0.5">Sub-cm trajectory drift</div>
-            </div>
-            <div className="bg-white rounded-xl p-4 border border-[#e2e8f0] shadow-sm">
-              <div className="text-[10px] font-bold tracking-widest uppercase text-[#64748b]">VIVA SUCCESS RATE</div>
-              <div className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] mt-1">100%</div>
-              <div className="text-[11px] text-[#005f62] font-bold mt-0.5">Grade A+ Commendation</div>
-            </div>
-          </div>
+          )}
 
           {/* Main Grid: Left Article Content (8 cols) + Right Sidebar (4 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Content Area */}
             <div className="lg:col-span-8 space-y-10">
-              {/* Featured Lab Image with Caption */}
+              {/* Featured Lab Image with Dynamic Caption */}
               <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden shadow-sm">
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#081719]">
                   <img
@@ -148,15 +146,15 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
                     alt={post.title}
                     className="size-full object-cover"
                     onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = asset("fb137.png");
+                      (e.currentTarget as HTMLImageElement).src = asset("viva.jpg");
                     }}
                   />
                   <div className="absolute bottom-3 left-3 bg-[#081719]/80 backdrop-blur text-white text-[11px] px-3 py-1.5 rounded-lg font-medium">
-                    📍 Real-Time LiDAR point cloud testing session • Edge Lab
+                    📍 {post.category} • University Project Builder Lab
                   </div>
                 </div>
                 <div className="px-5 py-3 text-xs text-[#64748b] bg-[#f8faf9] border-t border-[#e2e8f0]">
-                  Figure 1: Hardware setup showing live 3D sensor fusion and point cloud segmentation running on Jetson edge board.
+                  {post.figureCaption}
                 </div>
               </div>
 
@@ -166,242 +164,189 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
                   <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">01. BACKGROUND</span>
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">
-                  Executive Summary & Capstone Context
+                  Executive Summary & Problem Statement
                 </h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">
-                  Autonomous robotic platforms require millisecond-level environmental perception. For our senior undergraduate capstone, our team engineered a high-throughput 3D perception pipeline that merges raw spatial coordinates with inertial odometry while remaining within edge compute thermal envelopes.
+                  {post.content.introduction}
                 </p>
 
-                {/* 3 Callout summary boxes */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
-                  <div className="bg-[#f8faf9] p-4 rounded-xl border border-[#e2e8f0]">
-                    <span className="size-2 rounded-full bg-[#18797d] block mb-2" />
-                    <b className="text-xs font-bold text-[#0f172a] block mb-1">Low-Latency Pipeline</b>
-                    <p className="text-[12px] text-[#64748b] leading-relaxed">Achieved 54 FPS continuous point cloud voxel filtering on embedded Jetson.</p>
+                {/* Content sections intro */}
+                {post.content.sections[0] && (
+                  <div className="space-y-4 pt-2">
+                    <h3 className="font-['Plus_Jakarta_Sans:Bold'] text-lg font-bold text-[#0f172a]">
+                      {post.content.sections[0].heading}
+                    </h3>
+                    {post.content.sections[0].body.map((p, pIdx) => (
+                      <p key={pIdx} className="text-[15px] leading-[26px] text-[#475569]">
+                        {p}
+                      </p>
+                    ))}
+                    {post.content.sections[0].tips && post.content.sections[0].tips.length > 0 && (
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                        {post.content.sections[0].tips.map((tip, tIdx) => (
+                          <div key={tIdx} className="bg-[#f8faf9] p-4 rounded-xl border border-[#e2e8f0]">
+                            <span className="size-2 rounded-full bg-[#18797d] block mb-2" />
+                            <p className="text-[12px] text-[#334155] leading-relaxed font-medium">{tip}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <div className="bg-[#f8faf9] p-4 rounded-xl border border-[#e2e8f0]">
-                    <span className="size-2 rounded-full bg-[#d97706] block mb-2" />
-                    <b className="text-xs font-bold text-[#0f172a] block mb-1">Zero-Copy Memory</b>
-                    <p className="text-[12px] text-[#64748b] leading-relaxed">Eliminated IPC bottlenecks between PyTorch layers and CUDA buffers.</p>
-                  </div>
-                  <div className="bg-[#f8faf9] p-4 rounded-xl border border-[#e2e8f0]">
-                    <span className="size-2 rounded-full bg-[#005f62] block mb-2" />
-                    <b className="text-xs font-bold text-[#0f172a] block mb-1">Grade A+ Commendation</b>
-                    <p className="text-[12px] text-[#64748b] leading-relaxed">Praised by external university evaluation jury for reproducible benchmark rigor.</p>
-                  </div>
-                </div>
+                )}
               </section>
 
-              {/* Section 02: System Architecture & Dataflow */}
+              {/* Section 02: System Architecture / Pipeline */}
               <section className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">02. SYSTEM DESIGN</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">02. SYSTEM DESIGN & ARCHITECTURE</span>
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">
-                  System Architecture & Dataflow
+                  System Architecture & Implementation Steps
                 </h2>
-                <p className="text-[15px] leading-[26px] text-[#475569]">
-                  The complete system design is broken into 4 synchronized pipelines: Sensor Ingestion, Voxel Grid Normalization, Deep Neural Inference, and Pose Graph Optimization.
-                </p>
+                
+                {post.content.sections[1] && (
+                  <div className="space-y-4">
+                    <h3 className="font-['Plus_Jakarta_Sans:Bold'] text-lg font-bold text-[#0f172a]">
+                      {post.content.sections[1].heading}
+                    </h3>
+                    {post.content.sections[1].body.map((p, pIdx) => (
+                      <p key={pIdx} className="text-[15px] leading-[26px] text-[#475569]">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                )}
 
-                {/* Visual Flowchart representation */}
-                <div className="rounded-xl bg-[#081719] p-6 text-white overflow-x-auto shadow-inner">
-                  <div className="text-xs font-bold text-[#2dd4bf] uppercase tracking-wider mb-4">Pipeline Execution Flow</div>
-                  <div className="flex items-center gap-3 min-w-[500px]">
-                    <div className="flex-1 bg-[#102b30] border border-[#1e5860] p-3 rounded-lg text-center">
-                      <div className="text-[10px] text-slate-400">INPUT</div>
-                      <div className="text-xs font-bold mt-1 text-white">LiDAR + IMU</div>
+                {/* Dynamic Visual Pipeline if available */}
+                {post.pipeline && post.pipeline.length > 0 && (
+                  <div className="rounded-xl bg-[#081719] p-6 text-white overflow-x-auto shadow-inner">
+                    <div className="text-xs font-bold text-[#2dd4bf] uppercase tracking-wider mb-4">
+                      Execution & Defense Flow
                     </div>
-                    <span className="text-slate-400 font-bold">→</span>
-                    <div className="flex-1 bg-[#102b30] border border-[#1e5860] p-3 rounded-lg text-center">
-                      <div className="text-[10px] text-slate-400">FILTER</div>
-                      <div className="text-xs font-bold mt-1 text-white">Voxel Grid (0.05m)</div>
-                    </div>
-                    <span className="text-slate-400 font-bold">→</span>
-                    <div className="flex-1 bg-[#102b30] border border-[#1e5860] p-3 rounded-lg text-center">
-                      <div className="text-[10px] text-slate-400">INFERENCE</div>
-                      <div className="text-xs font-bold mt-1 text-[#2dd4bf]">TensorRT INT8</div>
-                    </div>
-                    <span className="text-slate-400 font-bold">→</span>
-                    <div className="flex-1 bg-[#102b30] border border-[#1e5860] p-3 rounded-lg text-center">
-                      <div className="text-[10px] text-slate-400">OUTPUT</div>
-                      <div className="text-xs font-bold mt-1 text-white">Trajectory Pose</div>
+                    <div className="flex items-center gap-3 min-w-[520px]">
+                      {post.pipeline.map((step, sIdx) => (
+                        <div key={sIdx} className="flex items-center gap-3 flex-1">
+                          <div className={`flex-1 p-3.5 rounded-lg text-center border ${step.highlight ? "bg-[#143d42] border-[#2dd4bf]" : "bg-[#102b30] border-[#1e5860]"}`}>
+                            <div className="text-[10px] text-slate-400">STEP {step.step}</div>
+                            <div className={`text-xs font-bold mt-1 ${step.highlight ? "text-[#2dd4bf]" : "text-white"}`}>
+                              {step.title}
+                            </div>
+                          </div>
+                          {sIdx < post.pipeline!.length - 1 && (
+                            <span className="text-slate-500 font-bold">→</span>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </div>
+                )}
 
-                {/* Code Block */}
-                <div className="rounded-xl bg-[#071317] border border-[#1e293b] overflow-hidden text-slate-300 font-mono text-xs">
-                  <div className="bg-[#0b1c20] px-4 py-2 border-b border-[#1e293b] flex items-center justify-between">
-                    <span className="text-[11px] text-slate-400">slam_pipeline_optimizer.py</span>
-                    <span className="text-[10px] text-[#2dd4bf] uppercase">Python 3.11 • TensorRT</span>
+                {/* Dynamic Code Snippet if present */}
+                {post.codeSnippet && (
+                  <div className="rounded-xl bg-[#071317] border border-[#1e293b] overflow-hidden text-slate-300 font-mono text-xs">
+                    <div className="bg-[#0b1c20] px-4 py-2 border-b border-[#1e293b] flex items-center justify-between">
+                      <span className="text-[11px] text-slate-400">{post.codeSnippet.filename}</span>
+                      <span className="text-[10px] text-[#2dd4bf] uppercase">{post.codeSnippet.language}</span>
+                    </div>
+                    <pre className="p-4 overflow-x-auto text-[11.5px] leading-relaxed">
+                      {post.codeSnippet.code}
+                    </pre>
                   </div>
-                  <pre className="p-4 overflow-x-auto text-[11.5px] leading-relaxed">
-{`# Memory-mapped zero copy inference pipeline
-import torch
-import tensorrt as trt
-
-class FastSLAMInference:
-    def __init__(self, engine_path: str):
-        self.runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
-        self.engine = self.load_engine(engine_path)
-        self.context = self.engine.create_execution_context()
-        self.stream = torch.cuda.Stream()
-        
-    def process_point_cloud(self, raw_points: torch.Tensor):
-        with torch.cuda.stream(self.stream):
-            # Quantized zero-copy CUDA execution
-            voxel_features = self.voxelize_cuda(raw_points)
-            pose_estimate = self.context.execute_v2([voxel_features.data_ptr()])
-            return pose_estimate`}
-                  </pre>
-                </div>
+                )}
               </section>
 
-              {/* Section 03: Empirical Performance Benchmarks */}
+              {/* Section 03: Performance Benchmarks & Results */}
               <section className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">03. BENCHMARKS</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">03. EVALUATION & METHODOLOGY</span>
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">
-                  Empirical Performance Benchmarks
+                  Experimental Evaluation & Academic Standards
                 </h2>
-                <p className="text-[15px] leading-[26px] text-[#475569]">
-                  We systematically benchmarked our pipeline against standard PointNet++ and traditional ICP across 3 distinct test environments (indoor lab, outdoor courtyard, and dark corridors).
-                </p>
-
-                {/* Benchmark Table */}
-                <div className="overflow-x-auto rounded-xl border border-[#e2e8f0]">
-                  <table className="w-full text-left text-xs border-collapse">
-                    <thead className="bg-[#f8faf9] text-[#475569] font-bold border-b border-[#e2e8f0]">
-                      <tr>
-                        <th className="p-3.5">Architecture Model</th>
-                        <th className="p-3.5">Precision (mAP)</th>
-                        <th className="p-3.5">Latency (ms)</th>
-                        <th className="p-3.5">RAM Usage</th>
-                        <th className="p-3.5">Defense Score</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#e2e8f0] text-[#334155]">
-                      <tr>
-                        <td className="p-3.5 font-medium">Standard PointNet++ (FP32)</td>
-                        <td className="p-3.5">86.4%</td>
-                        <td className="p-3.5">74.2 ms</td>
-                        <td className="p-3.5">820 MB</td>
-                        <td className="p-3.5 text-slate-500">B+</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3.5 font-medium">VoxelNet + ICP Baseline</td>
-                        <td className="p-3.5">88.1%</td>
-                        <td className="p-3.5">52.8 ms</td>
-                        <td className="p-3.5">610 MB</td>
-                        <td className="p-3.5 text-slate-500">A-</td>
-                      </tr>
-                      <tr className="bg-[#eef6f6]/60 font-semibold text-[#005f62]">
-                        <td className="p-3.5">Our Proposed TRT-INT8 Pipeline</td>
-                        <td className="p-3.5">92.7%</td>
-                        <td className="p-3.5 font-bold">18.2 ms</td>
-                        <td className="p-3.5">340 MB</td>
-                        <td className="p-3.5 font-bold text-[#10b981]">A+ ⭐</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Progress bar comparisons */}
-                <div className="space-y-3 pt-2">
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span>Baseline PyTorch (Standard Unoptimized)</span>
-                      <span>74.2 ms</span>
-                    </div>
-                    <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full overflow-hidden">
-                      <div className="h-full bg-slate-400 rounded-full" style={{ width: "95%" }} />
-                    </div>
+                
+                {post.content.sections[2] ? (
+                  <div className="space-y-4">
+                    <h3 className="font-['Plus_Jakarta_Sans:Bold'] text-lg font-bold text-[#0f172a]">
+                      {post.content.sections[2].heading}
+                    </h3>
+                    {post.content.sections[2].body.map((p, pIdx) => (
+                      <p key={pIdx} className="text-[15px] leading-[26px] text-[#475569]">
+                        {p}
+                      </p>
+                    ))}
+                    {post.content.sections[2].tips && (
+                      <div className="bg-[#f8faf9] rounded-xl p-5 border border-[#e2e8f0] space-y-2 mt-4">
+                        <div className="font-bold text-xs uppercase tracking-wider text-[#18797d] mb-2">
+                          💡 Key Recommendations:
+                        </div>
+                        <ul className="space-y-2">
+                          {post.content.sections[2].tips.map((tip, tIdx) => (
+                            <li key={tIdx} className="flex items-start gap-2 text-sm text-[#334155]">
+                              <span className="text-[#18797d] font-bold">•</span>
+                              <span>{tip}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span>TensorRT FP16 Acceleration</span>
-                      <span>36.5 ms</span>
-                    </div>
-                    <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#18797d] rounded-full" style={{ width: "50%" }} />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-[#005f62] font-bold">Our INT8 Quantized Zero-Copy Pipeline</span>
-                      <span className="text-[#005f62] font-bold">18.2 ms (75% faster)</span>
-                    </div>
-                    <div className="w-full h-2.5 bg-[#e2e8f0] rounded-full overflow-hidden">
-                      <div className="h-full bg-[#10b981] rounded-full" style={{ width: "25%" }} />
-                    </div>
-                  </div>
-                </div>
+                ) : (
+                  <p className="text-[15px] leading-[26px] text-[#475569]">
+                    {post.content.conclusion}
+                  </p>
+                )}
               </section>
 
-              {/* Section 04: Top Viva Questions Defended */}
+              {/* Section 04: Top Viva Questions Defended (Dynamic per blog) */}
               <section className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">04. VIVA DEFENSE PREP</span>
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">
-                  Top Viva & Panel Inquiries Defended
+                  Top Viva & Panel Inquiries For This Topic
                 </h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">
-                  Here are the exact questions our external examination committee asked, along with our proven answers:
+                  Here are the exact questions supervisors and examination committees ask during defense, with sample high-scoring answers:
                 </p>
 
                 <div className="space-y-4 pt-2">
-                  <div className="bg-[#f8faf9] p-5 rounded-xl border border-[#e2e8f0] space-y-2">
-                    <div className="font-bold text-sm text-[#0f172a] flex items-start gap-2">
-                      <span className="text-[#18797d]">Q1:</span>
-                      <span>How did you guarantee that INT8 quantization did not cause geometric accuracy degradation?</span>
+                  {post.vivaQuestions.map((v, vIdx) => (
+                    <div key={vIdx} className="bg-[#f8faf9] p-5 rounded-xl border border-[#e2e8f0] space-y-2">
+                      <div className="font-bold text-sm text-[#0f172a] flex items-start gap-2">
+                        <span className="text-[#18797d]">Q{vIdx + 1}:</span>
+                        <span>{v.question}</span>
+                      </div>
+                      <p className="text-xs text-[#475569] leading-relaxed pl-6">
+                        <b className="text-[#0f172a]">Answer: </b>
+                        {v.answer}
+                      </p>
                     </div>
-                    <p className="text-xs text-[#475569] leading-relaxed pl-6">
-                      <b className="text-[#0f172a]">Answer:</b> We implemented post-training calibration with a representative dataset of 2,500 point cloud frames, monitoring Kullback-Leibler (KL) divergence to ensure maximum dynamic range preservation.
-                    </p>
-                  </div>
-
-                  <div className="bg-[#f8faf9] p-5 rounded-xl border border-[#e2e8f0] space-y-2">
-                    <div className="font-bold text-sm text-[#0f172a] flex items-start gap-2">
-                      <span className="text-[#18797d]">Q2:</span>
-                      <span>What happens if the LiDAR sensor experiences occlusion or intense sunlight blinding?</span>
-                    </div>
-                    <p className="text-xs text-[#475569] leading-relaxed pl-6">
-                      <b className="text-[#0f172a]">Answer:</b> Our Kalman filter automatically falls back onto high-frequency IMU dead-reckoning and wheel odometry until point cloud confidence metrics recover above threshold.
-                    </p>
-                  </div>
+                  ))}
                 </div>
               </section>
 
-              {/* Section 05: Project Artifacts & Verification */}
+              {/* Section 05: Project Artifacts & Deliverables (Dynamic per blog) */}
               <section className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold uppercase tracking-widest text-[#18797d]">05. ARTIFACTS</span>
                 </div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">
-                  Project Artifacts & Reproducibility
+                  Project Artifacts & Student Deliverables
                 </h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">
-                  All documentation adheres to formal IEEE formatting guidelines with reproducible Docker scripts.
+                  Standard deliverables included in our university project guidance packages:
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-4 rounded-xl border border-[#e2e8f0] bg-[#f8faf9] flex items-start gap-3">
-                    <span className="text-2xl">📄</span>
-                    <div>
-                      <b className="text-xs font-bold text-[#0f172a] block">Complete Thesis PDF</b>
-                      <p className="text-[11px] text-[#64748b]">78-page IEEE formatted capstone report with citations.</p>
+                  {post.artifacts.map((a, aIdx) => (
+                    <div key={aIdx} className="p-4 rounded-xl border border-[#e2e8f0] bg-[#f8faf9] flex items-start gap-3">
+                      <span className="text-2xl">{a.icon}</span>
+                      <div>
+                        <b className="text-xs font-bold text-[#0f172a] block">{a.title}</b>
+                        <p className="text-[11px] text-[#64748b] mt-0.5">{a.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-4 rounded-xl border border-[#e2e8f0] bg-[#f8faf9] flex items-start gap-3">
-                    <span className="text-2xl">💻</span>
-                    <div>
-                      <b className="text-xs font-bold text-[#0f172a] block">Source Code Repository</b>
-                      <p className="text-[11px] text-[#64748b]">Documented GitHub repository with Docker setup.</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </section>
 
@@ -438,43 +383,31 @@ class FastSLAMInference:
                 </div>
                 <nav className="space-y-2.5 text-xs text-[#64748b]">
                   <div className="hover:text-[#18797d] transition cursor-pointer font-medium">01. Executive Summary & Context</div>
-                  <div className="hover:text-[#18797d] transition cursor-pointer font-medium">02. System Architecture & Dataflow</div>
-                  <div className="hover:text-[#18797d] transition cursor-pointer font-medium">03. Performance Benchmarks</div>
+                  <div className="hover:text-[#18797d] transition cursor-pointer font-medium">02. System Architecture & Flow</div>
+                  <div className="hover:text-[#18797d] transition cursor-pointer font-medium">03. Evaluation & Standards</div>
                   <div className="hover:text-[#18797d] transition cursor-pointer font-medium">04. Top Viva Questions Defended</div>
                   <div className="hover:text-[#18797d] transition cursor-pointer font-medium">05. Artifacts & Deliverables</div>
                 </nav>
               </div>
 
-              {/* Project Quick Specs Card */}
+              {/* Dynamic Capstone Specs Card */}
               <div className="bg-white rounded-2xl p-6 border border-[#e2e8f0] shadow-sm">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-4">
                   Capstone Specifications
                 </div>
                 <div className="space-y-3 text-xs">
-                  <div className="flex justify-between border-b border-[#f1f5f9] pb-2">
-                    <span className="text-[#64748b]">University:</span>
-                    <b className="text-[#0f172a]">BUET / DU / BRACU</b>
-                  </div>
-                  <div className="flex justify-between border-b border-[#f1f5f9] pb-2">
-                    <span className="text-[#64748b]">Domain:</span>
-                    <b className="text-[#0f172a]">Autonomous Systems</b>
-                  </div>
-                  <div className="flex justify-between border-b border-[#f1f5f9] pb-2">
-                    <span className="text-[#64748b]">Tech Stack:</span>
-                    <b className="text-[#0f172a]">PyTorch, TensorRT, ROS2</b>
-                  </div>
-                  <div className="flex justify-between border-b border-[#f1f5f9] pb-2">
-                    <span className="text-[#64748b]">Defense Grade:</span>
-                    <b className="text-[#10b981] font-bold">Grade A+ (Distinction)</b>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[#64748b]">Year:</span>
-                    <b className="text-[#0f172a]">2026 Academic Batch</b>
-                  </div>
+                  {post.specs.map((spec, sIdx) => (
+                    <div key={sIdx} className="flex justify-between border-b border-[#f1f5f9] pb-2 last:border-0 last:pb-0">
+                      <span className="text-[#64748b]">{spec.label}</span>
+                      <b className={`text-right ${spec.highlight ? "text-[#005f62] font-bold" : "text-[#0f172a]"}`}>
+                        {spec.value}
+                      </b>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Mentorship CTA Card matching reference design */}
+              {/* Mentorship CTA Card */}
               <div className="bg-[#081719] rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf]">
                   NEED ACADEMIC PROJECT HELP?
@@ -486,7 +419,7 @@ class FastSLAMInference:
                   We assist students with topic feasibility, complete code implementation, formal report writing & viva preparation.
                 </p>
                 <a
-                  href="https://wa.me/8801788392063"
+                  href={`https://wa.me/8801788392063?text=${encodeURIComponent(`Hi! I'm reading the guide "${post.title}" and would like to discuss my project.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 w-full bg-[#2dd4bf] hover:bg-[#14b8a6] text-[#081719] font-bold text-xs py-3 px-4 rounded-xl transition text-center block shadow-lg"
@@ -495,7 +428,7 @@ class FastSLAMInference:
                 </a>
               </div>
 
-              {/* Related Read Cards */}
+              {/* More Build Stories */}
               <div className="bg-white rounded-2xl p-6 border border-[#e2e8f0] shadow-sm">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-4">
                   More Build Stories
@@ -524,7 +457,7 @@ class FastSLAMInference:
           </div>
         </div>
 
-        {/* Global CTA Strip at bottom matching screenshot */}
+        {/* Global CTA Strip at bottom */}
         <section className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8 mt-20">
           <div className="bg-[#081719] rounded-2xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
             <div className="relative z-10 max-w-xl">
