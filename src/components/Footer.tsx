@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const assetPathPrefix = "/assets";
 const imgSvg8 = `${assetPathPrefix}/bf9ed.svg`;
 const imgLogo = `${assetPathPrefix}/blogo.png`;
@@ -10,25 +12,71 @@ const imgContainer23 = `${assetPathPrefix}/d2c9e.svg`;
 const imgContainer24 = `${assetPathPrefix}/5cb60.svg`;
 const imgTopCTA = `${assetPathPrefix}/footer-cta2.png`;
 
-const servicesLinks = [
-  "Project Development",
-  "Research Writing",
-  "Technical Setup",
-  "Data Analysis",
-  "Academic Reporting",
-  "System Architecture",
-];
-
-const resourcesLinks = [
-  { label: "Contact Us", badge: false },
-  { label: "Our Team", badge: false },
-  { label: "Student Reviews", badge: false },
-  { label: "Careers", badge: true },
-  { label: "Blog", badge: false },
-  { label: "Give Feedback", badge: false },
-];
+interface LinkItem {
+  label: string;
+  badge?: boolean;
+  action: () => void;
+}
 
 export default function Footer() {
+  const [agreed, setAgreed] = useState(true);
+  const [emailInput, setEmailInput] = useState("");
+
+  const navigateTo = (targetId: string) => {
+    const isHome = window.location.pathname === "/" || window.location.pathname === "";
+    if (!isHome) {
+      window.location.href = `/#${targetId}`;
+    } else {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const servicesLinks: LinkItem[] = [
+    { label: "Web Development", action: () => navigateTo("solutions") },
+    { label: "AI & Machine Learning", action: () => navigateTo("solutions") },
+    { label: "IoT & Embedded Systems", action: () => navigateTo("solutions") },
+    { label: "Thesis & Research", action: () => navigateTo("solutions") },
+    { label: "Viva & Defense Prep", action: () => navigateTo("solutions") },
+    { label: "Documentation & Reports", action: () => navigateTo("solutions") },
+  ];
+
+  const resourcesLinks: LinkItem[] = [
+    { label: "Contact Us", action: () => navigateTo("contact") },
+    { label: "Student Reviews", action: () => navigateTo("reviews") },
+    { label: "Project Portfolio", action: () => navigateTo("projects") },
+    { label: "Read Our Blog", action: () => { window.location.href = "/blog"; } },
+    { label: "FAQs & Pricing", action: () => navigateTo("contact") },
+    {
+      label: "Give Feedback",
+      badge: true,
+      action: () => {
+        const url = `https://wa.me/8801788392063?text=${encodeURIComponent(
+          "*Student Feedback - University Project Builder*\n\nHi! I'd like to share feedback about my project experience:"
+        )}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      },
+    },
+  ];
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions first.");
+      return;
+    }
+
+    const message = [
+      `*Project Updates & WhatsApp Support Request*`,
+      emailInput ? `*Email:* ${emailInput}` : null,
+      `*Note:* Please keep me updated with project ideas, guidelines & student discounts!`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const whatsappUrl = `https://wa.me/8801788392063?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div id="footer" className="bg-[#eef3f2] flex flex-col items-start overflow-clip pt-[40px] pb-[32px] relative shrink-0 w-full" data-node-id="1:898">
       {/* The footer surface starts behind the overlapping CTA. */}
@@ -66,12 +114,12 @@ export default function Footer() {
               </div>
             </div>
             <a
-                  href="https://wa.me/+8801788392063" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-[#081719] flex gap-[12px] items-center pl-[22px] pr-[4px] py-[4px] rounded-full hover:bg-[#0a1f23] transition-colors w-fit font-['Plus_Jakarta_Sans:SemiBold'] font-semibold text-[14px] leading-[22px] text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                >
-                  Get Started Now
+              href="https://wa.me/+8801788392063" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-[#081719] flex gap-[12px] items-center pl-[22px] pr-[4px] py-[4px] rounded-full hover:bg-[#0a1f23] transition-colors w-fit font-['Plus_Jakarta_Sans:SemiBold'] font-semibold text-[14px] leading-[22px] text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Get Started Now
               <span className="bg-white rounded-full shrink-0 size-[36px] flex items-center justify-center">
                 <span className="relative shrink-0 size-[16px]">
                   <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSvg8} />
@@ -133,10 +181,14 @@ export default function Footer() {
               <p className="leading-[28px]">Services</p>
             </div>
             <div className="flex flex-col gap-[11px] items-start w-full">
-              {servicesLinks.map((link) => (
-                <div key={link} className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[14.5px] cursor-pointer hover:text-[#18797d] transition-colors">
-                  <p className="leading-[21.75px]">{link}</p>
-                </div>
+              {servicesLinks.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={item.action}
+                  className="[word-break:break-word] text-left font-['Plus_Jakarta_Sans:Regular'] font-normal text-[#475569] text-[14.5px] cursor-pointer hover:text-[#18797d] transition-colors bg-transparent border-0 p-0 outline-none"
+                >
+                  <span className="leading-[21.75px]">{item.label}</span>
+                </button>
               ))}
             </div>
           </div>
@@ -144,18 +196,21 @@ export default function Footer() {
           {/* Column 3: Resources */}
           <div className="lg:col-span-2 flex flex-col gap-[23px] items-start">
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[18px] w-full">
-              <p className="leading-[28px]">Resources</p>
+              <p className="leading-[28px]">Quick Links</p>
             </div>
             <div className="flex flex-col gap-[11px] items-start w-full">
-              {resourcesLinks.map((link) => (
-                <div key={link.label} className="flex gap-[8px] items-center">
-                  <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative shrink-0 text-[#475569] text-[14.5px] cursor-pointer hover:text-[#18797d] transition-colors">
-                    <p className="leading-[21.75px]">{link.label}</p>
-                  </div>
-                  {link.badge && (
+              {resourcesLinks.map((item) => (
+                <div key={item.label} className="flex gap-[8px] items-center">
+                  <button
+                    onClick={item.action}
+                    className="[word-break:break-word] text-left font-['Plus_Jakarta_Sans:Regular'] font-normal text-[#475569] text-[14.5px] cursor-pointer hover:text-[#18797d] transition-colors bg-transparent border-0 p-0 outline-none"
+                  >
+                    <span className="leading-[21.75px]">{item.label}</span>
+                  </button>
+                  {item.badge && (
                     <div className="bg-[#18797d] flex flex-col items-start px-[8px] py-[2px] relative rounded-[9999px] shrink-0">
                       <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[10px] text-white tracking-[0.25px] uppercase whitespace-nowrap">
-                        <p className="leading-[15px]">NEW</p>
+                        <p className="leading-[15px]">HOT</p>
                       </div>
                     </div>
                   )}
@@ -164,37 +219,55 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Newsletter */}
+          {/* Column 4: Stay Connected on WhatsApp / Updates */}
           <div className="lg:col-span-4 flex flex-col gap-[24px] items-start">
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[26px] w-full">
-              <p className="leading-[35.75px] mb-0">Subscribe to Our</p>
-              <p className="leading-[35.75px]">Newsletter.</p>
+              <p className="leading-[35.75px] mb-0">Get Project Help &</p>
+              <p className="leading-[35.75px]">Direct Updates.</p>
             </div>
-            <div className="flex flex-col gap-[16px] items-start w-full">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-[16px] items-start w-full">
               <div className="flex flex-col items-start w-full">
-                <div className="bg-white border border-[rgba(226,232,240,0.8)] border-solid flex h-[56px] items-center overflow-clip pl-[21px] pr-[57px] relative rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] shrink-0 w-full">
+                <div className="bg-white border border-[rgba(226,232,240,0.8)] border-solid flex h-[56px] items-center overflow-clip pl-[21px] pr-[57px] relative rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] shrink-0 w-full focus-within:border-[#18797d] transition-colors">
                   <input
                     type="email"
-                    placeholder="Enter email"
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    placeholder="Enter email for WhatsApp support"
                     className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-[#0f172a] placeholder-[#94a3b8] outline-none"
                   />
-                  <div className="-translate-y-1/2 absolute bg-[#18797d] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center justify-center right-[12px] rounded-[8px] size-[36px] top-1/2">
+                  <button
+                    type="submit"
+                    aria-label="Connect on WhatsApp"
+                    className="-translate-y-1/2 absolute bg-[#18797d] hover:bg-[#1a8a8f] active:scale-95 drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center justify-center right-[12px] rounded-[8px] size-[36px] top-1/2 transition-all cursor-pointer border-0"
+                  >
                     <div className="flex items-center justify-center rotate-45 size-[16px]">
                       <img alt="" className="block size-full" src={imgSvg12} />
                     </div>
-                  </div>
+                  </button>
                 </div>
               </div>
-              <div className="flex gap-[8px] items-center">
-                <div className="bg-white border border-[#cbd5e1] border-solid relative rounded-[4px] shrink-0 size-[16px]" />
+              <label className="flex gap-[8px] items-center cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={agreed}
+                  onChange={(e) => setAgreed(e.target.checked)}
+                  className="sr-only peer"
+                />
+                <div className="size-[18px] rounded-[4px] border border-[#94a3b8] flex items-center justify-center transition-colors peer-checked:bg-[#18797d] peer-checked:border-[#18797d] bg-white">
+                  {agreed && (
+                    <svg className="w-3 h-3 text-white stroke-current stroke-2" fill="none" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </div>
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Regular'] font-normal justify-center leading-[0] relative min-w-0 text-[#475569] text-[13px]">
                   <p>
                     <span className="leading-[19.5px]">Agree to our </span>
-                    <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold leading-[19.5px] text-[#1e293b]">Terms & Condition?</span>
+                    <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold leading-[19.5px] text-[#1e293b]">Terms & Conditions</span>
                   </p>
                 </div>
-              </div>
-            </div>
+              </label>
+            </form>
           </div>
         </div>
 

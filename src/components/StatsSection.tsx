@@ -47,7 +47,7 @@ export default function StatsSection() {
                   <p className="leading-[24px]">Student Projects</p>
                 </div>
                 <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:ExtraBold'] font-extrabold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[72px] tracking-[-1.8px] w-full">
-                  <p className="leading-[72px]">30+</p>
+                  <p className="leading-[72px]">50+</p>
                 </div>
               </div>
             </div>

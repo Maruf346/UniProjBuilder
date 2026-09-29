@@ -60,7 +60,8 @@ export default function TestimonialsSection() {
 
   return (
     <div
-      className="bg-[#f2f4f3] content-stretch flex flex-col items-start overflow-clip py-[80px] relative shrink-0 w-full"
+      id="reviews"
+      className="bg-[#f2f4f3] content-stretch flex flex-col items-start overflow-clip py-[80px] relative shrink-0 w-full scroll-mt-20"
       data-node-id="1:588"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
