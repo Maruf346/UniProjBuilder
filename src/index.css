@@ -2,6 +2,12 @@
 
 @import 'tailwindcss';
 
+@layer base {
+  html, body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
 @font-face {
   font-family: "Plus Jakarta Sans:Regular";
   font-weight: 400;
