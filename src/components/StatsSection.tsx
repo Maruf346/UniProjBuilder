@@ -126,13 +126,13 @@ export default function StatsSection() {
             {/* Researcher avatars */}
             <div className="flex items-center relative shrink-0 w-full">
               <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[3] transform-gpu">
-                <img alt="Researcher 1" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher1} />
+                <img alt="" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher1} />
               </div>
               <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[2] transform-gpu">
-                <img alt="Researcher 2" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher2} />
+                <img alt="" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher2} />
               </div>
               <div className="relative rounded-full shadow-[0px_0px_0px_2px_white] shrink-0 size-[48px] overflow-hidden bg-[#18797d] mr-[-10px] z-[1] transform-gpu">
-                <img alt="Researcher 3" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher3} />
+                <img alt="" className="size-full object-cover object-center rounded-full" style={{ imageRendering: "auto" }} src={imgResearcher3} />
               </div>
               <div className="relative shrink-0 size-[48px] z-[0]">
                 <div className="bg-[rgba(15,23,42,0.9)] flex items-center justify-center relative rounded-full shrink-0 size-[48px] shadow-[0px_0px_0px_2px_white]">
