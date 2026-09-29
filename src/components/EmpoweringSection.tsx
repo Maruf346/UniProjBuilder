@@ -1,7 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 
 const assetPathPrefix = "/assets";
-const imgBusinessTeam = `${assetPathPrefix}/b5b9c.png`;
+const imgBusinessTeam = `${assetPathPrefix}/prop.png`;
 const imgContainer12 = `${assetPathPrefix}/7ef9f.svg`;
 const imgContainer13 = `${assetPathPrefix}/7853b.svg`;
 const imgContainer14 = `${assetPathPrefix}/23d61.svg`;
@@ -16,22 +16,22 @@ const features = [
   {
     icon: imgContainer13,
     iconSize: { w: "16.25px", h: "21.667px" },
-    title: "Innovative Solutions",
-    description: "Our team is always available to address your concerns, providing quick and effective solution to keep your business expert option.",
+    title: "Smart Project Help",
+    description: "We help you figure out what to build and how to build it — step by step. No confusing terms, just clear guidance that makes sense.",
     divider: true,
   },
   {
     icon: imgContainer14,
     iconSize: { w: "10.833px", h: "21.667px" },
-    title: "Winning Expertise",
-    description: "Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects base work",
+    title: "Experienced Team",
+    description: "Our team has helped many students complete their projects successfully. We know what supervisors look for and how to meet those expectations.",
     divider: true,
   },
   {
     icon: imgContainer15,
     iconSize: { w: "21.667px", h: "19.5px" },
-    title: "Dedicated Support",
-    description: "Our team is always available to address your concerns, providing quick and effective solution to keep your business for any business.",
+    title: "Always Here for You",
+    description: "Got a question at midnight before your deadline? We're here. You can reach us anytime and get a real, helpful response — not a bot.",
     divider: false,
   },
 ];
@@ -94,7 +94,7 @@ export default function EmpoweringSection() {
                 <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgContainer12} />
               </div>
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#18797d] text-[11px] tracking-[1.1px] uppercase whitespace-nowrap">
-                <p className="leading-[16.5px]">CHOOSE THE BEST</p>
+                <p className="leading-[16.5px]">WHY STUDENTS CHOOSE US</p>
               </div>
             </div>
           </motion.div>
@@ -108,8 +108,8 @@ export default function EmpoweringSection() {
             className="relative shrink-0 w-full mb-[16px]"
           >
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[clamp(32px,3.5vw,48px)] tracking-[-1.2px]">
-              <p className="leading-[1.12] mb-0">Empowering Business</p>
-              <p className="leading-[1.12]">with Expertise.</p>
+              <p className="leading-[1.12] mb-0">We Help Students</p>
+              <p className="leading-[1.12]">Finish Strong.</p>
             </div>
           </motion.div>
 
