@@ -24,6 +24,34 @@ export default function FaqSection() {
     message: "",
   });
 
+  const handleSendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    const serviceLabels: Record<string, string> = {
+      web: "Web Development",
+      ai: "AI/ML",
+      iot: "IoT & Hardware",
+      thesis: "Thesis & Research",
+      app: "Mobile App Development",
+      other: "Other Academic Project",
+    };
+
+    const selectedService = serviceLabels[formData.option] || formData.option || "Not specified";
+
+    const text = [
+      `*New Project Inquiry - University Project Builder*`,
+      `*Name:* ${formData.name || "N/A"}`,
+      `*Email:* ${formData.email || "N/A"}`,
+      `*Phone:* ${formData.phone || "N/A"}`,
+      `*Service:* ${selectedService}`,
+      formData.message ? `*Message:* ${formData.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const whatsappUrl = `https://wa.me/8801788392063?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="bg-[#eef3f2] content-stretch flex flex-col items-start px-[24px] py-[80px] relative shrink-0 w-full" data-node-id="1:672">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(420px,644px)_minmax(480px,700px)] gap-[48px] lg:gap-[96px] justify-center max-w-[1450px] mx-auto relative shrink-0 w-full">
@@ -125,13 +153,13 @@ export default function FaqSection() {
         </motion.div>
       </div>
 
-      {/* Drop Us a Line - full width contact form below */}
+      {/* Contact Us - full width contact form below */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.65}}
-        className="bg-[#081719] content-stretch flex flex-col items-start overflow-clip px-[48px] py-[112px] relative shrink-0 w-full mt-[80px] rounded-[16px]"
+        className="bg-[#081719] content-stretch flex flex-col items-start overflow-clip px-[24px] md:px-[48px] py-[80px] md:py-[112px] relative shrink-0 w-full mt-[80px] rounded-[16px]"
       >
         {/* Left SVG decorations */}
         <div className="absolute inset-0 overflow-clip pointer-events-none">
@@ -170,7 +198,7 @@ export default function FaqSection() {
           </div>
 
           {/* Right: contact form */}
-          <div className="backdrop-blur-[6px] bg-[rgba(18,38,41,0.88)] border border-[rgba(255,255,255,0.1)] border-solid lg:col-span-6 flex flex-col gap-[32px] items-start overflow-clip p-[49px] relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.7)]">
+          <div className="backdrop-blur-[6px] bg-[rgba(18,38,41,0.88)] border border-[rgba(255,255,255,0.1)] border-solid lg:col-span-6 flex flex-col gap-[32px] items-start overflow-clip p-[32px] md:p-[49px] relative rounded-[16px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.7)]">
             {/* Tag */}
             <div className="bg-[#0e272b] border border-[#1d575c] border-solid relative rounded-[6px] shrink-0">
               <div className="flex gap-[8px] items-center px-[13px] py-[7px]">
@@ -187,29 +215,30 @@ export default function FaqSection() {
             <div className="relative shrink-0 w-full">
               <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[clamp(32px,3vw,48px)] text-white tracking-[-1.2px] w-full">
                 <p>
-                  <span className="leading-[1]">Drop Us a </span>
-                  <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold leading-[1] text-[#2dd4bf]">Line.</span>
+                  <span className="leading-[1]">Contact </span>
+                  <span className="font-['Plus_Jakarta_Sans:Bold'] font-bold leading-[1] text-[#2dd4bf]">Us.</span>
                 </p>
               </div>
             </div>
 
             {/* Form */}
-            <div className="flex flex-col gap-[32px] items-start pt-[8px] w-full">
+            <form onSubmit={handleSendMessage} className="flex flex-col gap-[32px] items-start pt-[8px] w-full">
               {/* Row 1: Name + Email */}
               <div className="flex flex-col md:flex-row gap-[32px] items-start justify-center w-full">
-                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full">
+                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full focus-within:border-[#2dd4bf] transition-colors">
                   <input
                     type="text"
+                    required
                     placeholder="Full Name *"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-white placeholder-[#94a3b8] outline-none"
                   />
                 </div>
-                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full">
+                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full focus-within:border-[#2dd4bf] transition-colors">
                   <input
                     type="email"
-                    placeholder="Email Address *"
+                    placeholder="Email Address (optional)"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-white placeholder-[#94a3b8] outline-none"
@@ -219,34 +248,43 @@ export default function FaqSection() {
 
               {/* Row 2: Phone + Option */}
               <div className="flex flex-col md:flex-row gap-[32px] items-start justify-center w-full">
-                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full">
+                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full focus-within:border-[#2dd4bf] transition-colors">
                   <input
                     type="tel"
-                    placeholder="Phone number *"
+                    placeholder="Phone number / WhatsApp *"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-white placeholder-[#94a3b8] outline-none"
                   />
                 </div>
-                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-center overflow-clip pb-[13px] pl-[12px] pr-[40px] pt-[8px] w-full relative">
+                <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex flex-1 items-center overflow-clip pb-[13px] pl-[12px] pr-[12px] pt-[8px] w-full relative focus-within:border-[#2dd4bf] transition-colors">
                   <select
                     value={formData.option}
                     onChange={(e) => setFormData({ ...formData, option: e.target.value })}
-                    className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-[#cbd5e1] outline-none appearance-none"
+                    className={`flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] outline-none appearance-none cursor-pointer pr-6 ${
+                      formData.option ? "text-white" : "text-[#94a3b8]"
+                    }`}
                   >
-                    <option value="" disabled>Chose a option</option>
-                    <option value="web">Web Development</option>
-                    <option value="ai">AI/ML</option>
-                    <option value="iot">IoT</option>
-                    <option value="thesis">Thesis</option>
+                    <option value="" disabled className="bg-[#0f2a2e] text-[#94a3b8]">Choose a Service / Project Type *</option>
+                    <option value="web" className="bg-[#0f2a2e] text-white py-2">Web Development</option>
+                    <option value="ai" className="bg-[#0f2a2e] text-white py-2">AI / Machine Learning</option>
+                    <option value="iot" className="bg-[#0f2a2e] text-white py-2">IoT & Hardware</option>
+                    <option value="thesis" className="bg-[#0f2a2e] text-white py-2">Thesis & Documentation</option>
+                    <option value="app" className="bg-[#0f2a2e] text-white py-2">Mobile App</option>
+                    <option value="other" className="bg-[#0f2a2e] text-white py-2">Other Project</option>
                   </select>
+                  <div className="pointer-events-none absolute right-[12px] top-1/2 -translate-y-1/2 text-[#2dd4bf] flex items-center">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                 </div>
               </div>
 
               {/* Row 3: Message */}
-              <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full">
+              <div className="border-[rgba(255,255,255,0.2)] border-b border-solid flex items-start justify-center overflow-clip pb-[16px] pt-[10px] px-[12px] w-full focus-within:border-[#2dd4bf] transition-colors">
                 <textarea
-                  placeholder="Type message *"
+                  placeholder="Tell us about your project, deadline & university requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={3}
@@ -256,18 +294,14 @@ export default function FaqSection() {
 
               {/* Submit button */}
               <div className="flex flex-col items-start pt-[16px] w-full">
-                <button className="bg-[#18797d] content-stretch flex gap-[12px] items-center pl-[28px] pr-[10px] py-[10px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#1a8a8f] transition-colors">
+                <button
+                  type="submit"
+                  className="bg-[#18797d] content-stretch flex gap-[12px] items-center pl-[28px] pr-[10px] py-[10px] relative rounded-[9999px] shrink-0 cursor-pointer hover:bg-[#1a8a8f] active:scale-[0.98] transition-all"
+                >
                   <div className="absolute bg-[rgba(255,255,255,0)] inset-0 rounded-[9999px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]" />
-                  <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-center text-white whitespace-nowrap">
-                    <a 
-                      href="https://wa.me/+8801788392063" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="leading-[22.5px]"
-                    >
-                      Send Message
-                    </a>
-                  </div>
+                  <span className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:SemiBold'] font-semibold justify-center leading-[0] relative shrink-0 text-[15px] text-center text-white whitespace-nowrap">
+                    Send Message
+                  </span>
                   <div className="bg-[#082b2f] flex items-center justify-center relative rounded-[9999px] shrink-0 size-[36px]">
                     <div className="relative shrink-0 size-[16px]">
                       <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSvg} />
@@ -275,7 +309,7 @@ export default function FaqSection() {
                   </div>
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </motion.div>
