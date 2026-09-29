@@ -362,7 +362,7 @@ optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)`
     author: "Fahim Hasan",
     authorRole: "Embedded Hardware Specialist • BRACU",
     time: "6 min read",
-    image: "87b36.png",
+    image: "916be.png",
     figureCaption: "Figure 1: IoT microcontroller testbed with decoupled power rails and live cloud MQTT telemetry stream.",
     summary: "Common hardware mistakes in student IoT projects — from voltage regulator overheating to MQTT broker connection drops — and how to fix them before live demo day.",
     tags: ["IoT", "ESP32", "Arduino", "Embedded Systems", "Hardware"],

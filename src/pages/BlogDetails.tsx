@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -133,11 +133,10 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
                     <MapPinIcon />{post.category} • University Project Builder Lab
                   </div>
                 </div>
-                <div className="px-5 py-3 text-xs text-[#64748b] bg-[#f8faf9] border-t border-[#e2e8f0]">{post.figureCaption}</div>
               </motion.div>
 
               {/* Section 01 */}
-              <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
+              <motion.section id="section-01" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
                 <div className="flex items-center gap-2 text-[#18797d]"><DocumentIcon /><span className="text-xs font-bold uppercase tracking-widest">01. BACKGROUND</span></div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">Executive Summary &amp; Problem Statement</h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">{post.content.introduction}</p>
@@ -160,7 +159,7 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
               </motion.section>
 
               {/* Section 02 */}
-              <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
+              <motion.section id="section-02" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
                 <div className="flex items-center gap-2 text-[#18797d]"><CodeBracketIcon /><span className="text-xs font-bold uppercase tracking-widest">02. SYSTEM DESIGN &amp; ARCHITECTURE</span></div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">System Architecture &amp; Implementation Steps</h2>
                 {post.content.sections[1] && (
@@ -197,7 +196,7 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
               </motion.section>
 
               {/* Section 03 */}
-              <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
+              <motion.section id="section-03" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-6">
                 <div className="flex items-center gap-2 text-[#18797d]"><BeakerIcon /><span className="text-xs font-bold uppercase tracking-widest">03. EVALUATION &amp; METHODOLOGY</span></div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">Experimental Evaluation &amp; Academic Standards</h2>
                 {post.content.sections[2] ? (
@@ -219,7 +218,7 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
               </motion.section>
 
               {/* Section 04: Viva */}
-              <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
+              <motion.section id="section-04" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
                 <div className="flex items-center gap-2 text-[#18797d]"><AcademicCapIcon /><span className="text-xs font-bold uppercase tracking-widest">04. VIVA DEFENSE PREP</span></div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">Top Viva &amp; Panel Inquiries For This Topic</h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">Here are the exact questions supervisors and examination committees ask during defense, with sample high-scoring answers:</p>
@@ -234,7 +233,7 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
               </motion.section>
 
               {/* Section 05: Artifacts */}
-              <motion.section variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
+              <motion.section id="section-05" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e2e8f0] shadow-sm space-y-5">
                 <div className="flex items-center gap-2 text-[#18797d]"><BriefcaseIcon /><span className="text-xs font-bold uppercase tracking-widest">05. ARTIFACTS</span></div>
                 <h2 className="font-['Plus_Jakarta_Sans:Bold'] text-2xl font-bold text-[#0f172a] tracking-tight">Project Artifacts &amp; Student Deliverables</h2>
                 <p className="text-[15px] leading-[26px] text-[#475569]">Standard deliverables included in our university project guidance packages:</p>
@@ -270,10 +269,28 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
               <div className="bg-white rounded-2xl p-6 border border-[#e2e8f0] shadow-sm">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#0f172a] mb-4 flex items-center gap-2"><BookOpenIcon />Article Contents</div>
                 <nav className="space-y-2.5 text-xs text-[#64748b]">
-                  {["01. Executive Summary & Context","02. System Architecture & Flow","03. Evaluation & Standards","04. Top Viva Questions Defended","05. Artifacts & Deliverables"].map((item) => (
-                    <div key={item} className="hover:text-[#18797d] transition cursor-pointer font-medium flex items-center gap-1.5">
-                      <span className="size-1 rounded-full bg-[#18797d]/40 shrink-0" />{item}
-                    </div>
+                  {[
+                    { title: "01. Executive Summary & Context", id: "section-01" },
+                    { title: "02. System Architecture & Flow", id: "section-02" },
+                    { title: "03. Evaluation & Standards", id: "section-03" },
+                    { title: "04. Top Viva Questions Defended", id: "section-04" },
+                    { title: "05. Artifacts & Deliverables", id: "section-05" },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        const el = document.getElementById(item.id);
+                        if (el) {
+                          const yOffset = -110;
+                          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                          window.scrollTo({ top: y, behavior: "smooth" });
+                        }
+                      }}
+                      className="w-full text-left hover:text-[#18797d] transition cursor-pointer font-medium flex items-center gap-1.5 group"
+                    >
+                      <span className="size-1 rounded-full bg-[#18797d]/40 group-hover:bg-[#18797d] shrink-0" />
+                      {item.title}
+                    </button>
                   ))}
                 </nav>
               </div>
