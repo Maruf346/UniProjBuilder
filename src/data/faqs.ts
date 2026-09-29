@@ -7,27 +7,27 @@ export interface FAQ {
 export const faqs: FAQ[] = [
   {
     id: 1,
-    question: "What services does Bexon offer to clients?",
-    answer: "Bexon offers a comprehensive range of services including full-stack web platforms, AI & deep learning systems, mobile & IoT solutions, data mining & analytics, thesis & research implementation, and technical documentation.",
+    question: "Is this budget-friendly for university students?",
+    answer: "Yes, 100%! We know student budgets are tight, so our pricing is specially customized for university projects and group assignments. You get high-quality project support without burning a hole in your pocket.",
   },
   {
     id: 2,
-    question: "How do I get started with Corporate Business?",
-    answer: "Getting started is simple. Contact us via our website or call us directly. We'll schedule a discovery call to understand your needs and propose a tailored solution.",
+    question: "What kind of student projects do you build?",
+    answer: "We cover CSE, EEE, Software Engineering, Business, and IT projects. This includes Full-Stack Web & Mobile Apps, AI/ML models, IoT & Hardware setups, Data Analysis, and Thesis research documentation.",
   },
   {
     id: 3,
-    question: "How do you ensure the success of a project?",
-    answer: "We follow a structured 3-phase process: Discovery & Planning, Execution & Delivery, and Review & Support. Each phase includes quality checks aligned with your goals and academic/industry standards.",
+    question: "Will you explain the project so I can defend my viva?",
+    answer: "Absolutely! We don't just hand over code or files. We break down the whole project step-by-step and provide viva/defense preparation so you can answer your supervisor's questions with full confidence.",
   },
   {
     id: 4,
-    question: "How long will it take to complete my project?",
-    answer: "Project timelines vary based on complexity and scope. After the discovery phase, we provide a detailed timeline. Most academic projects are completed within 2-8 weeks.",
+    question: "Can you handle tight deadlines or urgent submissions?",
+    answer: "Yes, we handle urgent requests regularly! Whether your submission is due in a few days or weeks, let us know your deadline and we'll plan a fast-track delivery schedule for you.",
   },
   {
     id: 5,
-    question: "Can I track the progress of my project?",
-    answer: "Yes! We provide regular progress updates and use collaborative tools so you can track milestones, review deliverables, and provide feedback throughout the entire development process.",
+    question: "What if my supervisor asks for revisions or changes?",
+    answer: "No worries at all. We support you through feedback loops and supervisor revisions until your final submission is approved.",
   },
 ];
