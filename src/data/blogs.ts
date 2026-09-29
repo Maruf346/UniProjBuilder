@@ -10,12 +10,15 @@ export interface BlogPost {
   day: string;
   month: string;
   category: string;
+  subCategory?: string;
   author: string;
   authorRole: string;
   time: string;
   image: string;
   summary: string;
   featured?: boolean;
+  featuredBadges?: { text: string; bg: string; color: string }[];
+  metrics?: { label: string; value: string; color?: string }[];
   tags: string[];
   content: {
     introduction: string;

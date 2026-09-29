@@ -62,8 +62,8 @@ export default function Navbar() {
       <nav
         className={`relative mx-auto flex h-[72px] max-w-[1879px] items-center justify-between rounded-[14px] border px-[18px] sm:px-[20px] transition-all duration-500 overflow-hidden ${
           scrolled
-            ? "border-white/[.12] bg-[#0b1c1f]/96 shadow-[0_20px_60px_rgba(0,0,0,.4),0_1px_0_rgba(255,255,255,.08)_inset] backdrop-blur-[28px]"
-            : "border-white/[.08] bg-[#17272a]/60 shadow-[0_12px_40px_rgba(0,0,0,.18),0_1px_0_rgba(255,255,255,.07)_inset] backdrop-blur-xl"
+            ? "border-white/[.12] bg-[#07171a]/96 shadow-[0_20px_60px_rgba(0,0,0,.45),0_1px_0_rgba(255,255,255,.08)_inset] backdrop-blur-[28px]"
+            : "border-white/[.14] bg-[#0b1e22]/90 shadow-[0_12px_40px_rgba(0,0,0,.25),0_1px_0_rgba(255,255,255,.07)_inset] backdrop-blur-xl"
         }`}
       >
         {/* Glossy sheen overlay */}
