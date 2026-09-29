@@ -135,8 +135,8 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     artifacts: [
-      { title: "Viva Defense Question Bank", description: "25 fully explained answers covering algorithms, databases & architecture.", icon: "📋" },
-      { title: "Standard Presentation Deck", description: "12-slide high-impact defense slide template formatted for 15-minute limits.", icon: "📊" },
+      { title: "Viva Defense Question Bank", description: "25 fully explained answers covering algorithms, databases & architecture.", icon: "viva" },
+      { title: "Standard Presentation Deck", description: "12-slide high-impact defense slide template formatted for 15-minute limits.", icon: "presentation" },
     ],
     content: {
       introduction: "Walking into your project defense room can feel intimidating, but supervisors almost always evaluate projects using a predictable framework. Understanding what professors look for is 80% of the preparation.",
@@ -231,8 +231,8 @@ services:
       },
     ],
     artifacts: [
-      { title: "Complete Software Architecture Report", description: "IEEE-formatted documentation with full UML, ERD, and use case diagrams.", icon: "📄" },
-      { title: "Production Ready Codebase", description: "Modular repository with Docker configurations and API Swagger docs.", icon: "📦" },
+      { title: "Complete Software Architecture Report", description: "IEEE-formatted documentation with full UML, ERD, and use case diagrams.", icon: "report" },
+      { title: "Production Ready Codebase", description: "Modular repository with Docker configurations and API Swagger docs.", icon: "code" },
     ],
     content: {
       introduction: "Starting your final year capstone project without a clear roadmap leads to panic two weeks before submission. Breaking your project into structured milestones makes execution smooth and stress-free.",
@@ -320,8 +320,8 @@ optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)`
       },
     ],
     artifacts: [
-      { title: "Complete ML Training Pipeline", description: "Jupyter notebooks with automated evaluation scripts and confusion matrices.", icon: "🧠" },
-      { title: "Preprocessed Clean Dataset", description: "15,000 labeled samples with train/val/test splits and documentation.", icon: "📊" },
+      { title: "Complete ML Training Pipeline", description: "Jupyter notebooks with automated evaluation scripts and confusion matrices.", icon: "pipeline" },
+      { title: "Preprocessed Clean Dataset", description: "15,000 labeled samples with train/val/test splits and documentation.", icon: "dataset" },
     ],
     content: {
       introduction: "Machine Learning projects are among the most popular university choices, but supervisors are tired of generic Iris dataset classifications. Here is how to build an ML project with real academic credibility.",
@@ -408,8 +408,8 @@ void enterDeepSleep(uint64_t sleepMinutes) {
       },
     ],
     artifacts: [
-      { title: "Schematic & Gerber PCB Files", description: "EasyEDA / KiCAD production ready circuit schematics with component BOM.", icon: "⚡" },
-      { title: "Embedded Firmware & Cloud Code", description: "Clean C++ firmware with secure MQTT telemetry and Grafana dashboard scripts.", icon: "📡" },
+      { title: "Schematic & Gerber PCB Files", description: "EasyEDA / KiCAD production ready circuit schematics with component BOM.", icon: "schematic" },
+      { title: "Embedded Firmware & Cloud Code", description: "Clean C++ firmware with secure MQTT telemetry and Grafana dashboard scripts.", icon: "firmware" },
     ],
     content: {
       introduction: "Live hardware demos are notoriously prone to unexpected glitches during viva presentations. Here is how to make your microcontroller setup resilient, stable, and panel-ready.",
@@ -484,8 +484,8 @@ void enterDeepSleep(uint64_t sleepMinutes) {
       },
     ],
     artifacts: [
-      { title: "Complete Thesis Template (Overleaf/Word)", description: "Pre-formatted LaTeX source files with bibliography styles and vector diagrams.", icon: "📚" },
-      { title: "Turnitin Plagiarism Verification Report", description: "Official originality certificate verifying similarity below 10%.", icon: "✅" },
+      { title: "Complete Thesis Template (Overleaf/Word)", description: "Pre-formatted LaTeX source files with bibliography styles and vector diagrams.", icon: "thesis" },
+      { title: "Turnitin Plagiarism Verification Report", description: "Official originality certificate verifying similarity below 10%.", icon: "turnitin" },
     ],
     content: {
       introduction: "Even great software will receive mediocre grades if the accompanying project report is unstructured and riddled with formatting mistakes. Here is the standard chapter structure supervisors expect.",
@@ -563,8 +563,8 @@ void enterDeepSleep(uint64_t sleepMinutes) {
       },
     ],
     artifacts: [
-      { title: "Project Domain Selection Matrix", description: "Comprehensive rubric comparing development effort, cost, and grading likelihood.", icon: "🧭" },
-      { title: "Free 1-on-1 Mentor Consultation", description: "Direct WhatsApp session to evaluate your group's proposed project topic.", icon: "💬" },
+      { title: "Project Domain Selection Matrix", description: "Comprehensive rubric comparing development effort, cost, and grading likelihood.", icon: "matrix" },
+      { title: "Free 1-on-1 Mentor Consultation", description: "Direct WhatsApp session to evaluate your group's proposed project topic.", icon: "mentor" },
     ],
     content: {
       introduction: "Your final year project serves as both your academic capstone and your primary portfolio piece for post-graduation job hunting. Here is how to choose the right track based on your skills and career ambitions.",
