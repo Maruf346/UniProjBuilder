@@ -20,7 +20,7 @@ interface LinkItem {
 
 export default function Footer() {
   const [agreed, setAgreed] = useState(true);
-  const [emailInput, setEmailInput] = useState("");
+  const [queryInput, setQueryInput] = useState("");
 
   const navigateTo = (targetId: string) => {
     const isHome = window.location.pathname === "/" || window.location.pathname === "";
@@ -45,7 +45,7 @@ export default function Footer() {
     { label: "Student Reviews", action: () => navigateTo("reviews") },
     { label: "Project Portfolio", action: () => navigateTo("projects") },
     { label: "Read Our Blog", action: () => { window.location.href = "/blog"; } },
-    { label: "FAQs & Pricing", action: () => navigateTo("contact") },
+    { label: "FAQs & Pricing", action: () => navigateTo("faq") },
     {
       label: "Give Feedback",
       badge: true,
@@ -58,7 +58,7 @@ export default function Footer() {
     },
   ];
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleQuerySubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreed) {
       alert("Please agree to the Terms & Conditions first.");
@@ -66,9 +66,8 @@ export default function Footer() {
     }
 
     const message = [
-      `*Project Updates & WhatsApp Support Request*`,
-      emailInput ? `*Email:* ${emailInput}` : null,
-      `*Note:* Please keep me updated with project ideas, guidelines & student discounts!`,
+      `*Quick Query - University Project Builder*`,
+      queryInput ? `*Query:* ${queryInput}` : `*Query:* Hi, I want to discuss a project.`,
     ]
       .filter(Boolean)
       .join("\n");
@@ -219,25 +218,25 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Stay Connected on WhatsApp / Updates */}
+          {/* Column 4: WhatsApp Query Box */}
           <div className="lg:col-span-4 flex flex-col gap-[24px] items-start">
             <div className="[word-break:break-word] flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] relative shrink-0 text-[#0f172a] text-[26px] w-full">
-              <p className="leading-[35.75px] mb-0">Get Project Help &</p>
-              <p className="leading-[35.75px]">Direct Updates.</p>
+              <p className="leading-[35.75px] mb-0">Have a Question?</p>
+              <p className="leading-[35.75px]">Ask Us on WhatsApp.</p>
             </div>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-[16px] items-start w-full">
+            <form onSubmit={handleQuerySubmit} className="flex flex-col gap-[16px] items-start w-full">
               <div className="flex flex-col items-start w-full">
                 <div className="bg-white border border-[rgba(226,232,240,0.8)] border-solid flex h-[56px] items-center overflow-clip pl-[21px] pr-[57px] relative rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] shrink-0 w-full focus-within:border-[#18797d] transition-colors">
                   <input
-                    type="email"
-                    value={emailInput}
-                    onChange={(e) => setEmailInput(e.target.value)}
-                    placeholder="Enter email for WhatsApp support"
+                    type="text"
+                    value={queryInput}
+                    onChange={(e) => setQueryInput(e.target.value)}
+                    placeholder="Send your query here..."
                     className="flex-1 min-w-px bg-transparent font-['Plus_Jakarta_Sans:Regular'] font-normal text-[15px] text-[#0f172a] placeholder-[#94a3b8] outline-none"
                   />
                   <button
                     type="submit"
-                    aria-label="Connect on WhatsApp"
+                    aria-label="Send Query on WhatsApp"
                     className="-translate-y-1/2 absolute bg-[#18797d] hover:bg-[#1a8a8f] active:scale-95 drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center justify-center right-[12px] rounded-[8px] size-[36px] top-1/2 transition-all cursor-pointer border-0"
                   >
                     <div className="flex items-center justify-center rotate-45 size-[16px]">

@@ -53,7 +53,7 @@ export default function FaqSection() {
   };
 
   return (
-    <div className="bg-[#eef3f2] content-stretch flex flex-col items-start px-[24px] py-[80px] relative shrink-0 w-full" data-node-id="1:672">
+    <div id="faq" className="bg-[#eef3f2] content-stretch flex flex-col items-start px-[24px] py-[80px] relative shrink-0 w-full scroll-mt-20" data-node-id="1:672">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(420px,644px)_minmax(480px,700px)] gap-[48px] lg:gap-[96px] justify-center max-w-[1450px] mx-auto relative shrink-0 w-full">
         {/* FAQ accordion */}
         <motion.div
