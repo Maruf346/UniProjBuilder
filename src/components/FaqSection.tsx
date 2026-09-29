@@ -3,7 +3,7 @@ import { useState } from "react";
 import { faqs } from "../data/faqs";
 
 const assetPathPrefix = "/assets";
-const imgHeroBg = `${assetPathPrefix}/87b36.png`;
+const imgHeroBg = `${assetPathPrefix}/help.png`;
 const imgContainer18 = `${assetPathPrefix}/b0f01.svg`;
 const imgContainer19 = `${assetPathPrefix}/f8f74.svg`;
 const imgContainer20 = `${assetPathPrefix}/2e6fe.svg`;
@@ -82,7 +82,7 @@ export default function FaqSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.65}}
-          className="bg-[rgba(255,255,255,0)] h-[560px] lg:h-[690px] overflow-clip relative rounded-[10px] order-1 lg:order-1"
+          className="bg-[rgba(255,255,255,0)] h-[560px] lg:h-[690px] overflow-clip relative rounded-[10px] order-1 lg:order-1 w-full max-w-[1800px] mx-auto"
         >
           {/* Background image with overlay */}
           <div aria-hidden className="absolute inset-0 pointer-events-none">
@@ -93,7 +93,7 @@ export default function FaqSection() {
           </div>
           <div className="absolute bg-gradient-to-t from-[rgba(0,0,0,0.4)] inset-0 to-[rgba(0,0,0,0.3)] via-1/2 via-[rgba(0,0,0,0)]" />
 
-          <div className="[word-break:break-word] absolute flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] left-[36px] md:left-[42px] text-[clamp(34px,3.6vw,52px)] text-white top-[48px] md:top-[54px] tracking-[-1.05px]">
+          <div className="[word-break:break-word] absolute flex flex-col font-['Plus_Jakarta_Sans:Bold'] font-bold justify-center leading-[0] left-[36px] md:left-[42px] text-[clamp(34px,3.6vw,52px)] text-white top-[48px] md:top-[504px] tracking-[-1.05px] bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
             <p className="leading-[1.15] mb-0">Need Help?</p>
             <p className="leading-[1.15]">Start Here...</p>
           </div>

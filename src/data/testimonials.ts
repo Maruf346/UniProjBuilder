@@ -6,28 +6,49 @@ export interface Testimonial {
   avatar: string;
 }
 
-const assetPathPrefix = "/assets";
-
+// ─── Edit your reviews here ───────────────────────────────────────────────────
+// avatar: drop your image into /public/ and set the path like "/rev1.png"
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Devon Lane",
-    role: "Co. Founder",
-    text: "We've been working with Bexon for years, and they continue to deliver outstanding results. Their team is proactive, responsive, and always goes the extra mile to ensure our needs are met. They've become a key contributor to our growth and success that really help us",
-    avatar: `${assetPathPrefix}/3c623.png`,
+    name: "Rafiul Islam",
+    role: "CSE Final Year, BRACU",
+    text: "I was totally lost with my thesis topic and had no idea where to start. The team helped me pick a practical idea, set it up properly, and even guided me through the documentation. Submitted on time and my supervisor was actually impressed!",
+    avatar: "/rev1.png",
   },
   {
     id: 2,
-    name: "Guy Hawkins",
-    role: "Co. Founder",
-    text: "Working with Bexon has been a game-changer for our business. Their team's professionalism, attention to detail, and innovative solutions have helped us streamline operations and achieve our goals faster than we imagined. We truly feel like a valued partner.",
-    avatar: `${assetPathPrefix}/87b36.png`,
+    name: "Nusrat Khanam",
+    role: "EEE Student, GUB",
+    text: "Honestly didn't think I'd find anyone who understood what my project actually needed. They built the circuit simulation, wrote the report structure, and explained everything so I could defend it myself. Really trustworthy team.",
+    avatar: "/rev2.png",
   },
   {
     id: 3,
-    name: "Ralph Edwards",
-    role: "Co. Founder",
-    text: "The results we've seen after partnering with Bexon are beyond our expectations. They not only understood our vision but also brought new ideas to the table that have taken our business to the next level. Their expertise and commitment to success make them a trusted.",
-    avatar: `${assetPathPrefix}/c0a09.png`,
+    name: "Tanvir Hossain",
+    role: "BBA Final Year, EWU",
+    text: "My project was due in 5 days and I had nothing ready. I messaged them late at night and they started the same day. The final output was clean, properly formatted, and my supervisor had no major complaints. Will definitely come back next semester.",
+    avatar: "/rev3.png",
+  },
+  {
+    id: 4,
+    name: "Sadia Akter",
+    role: "Software Engineering, DIU",
+    text: "They completed my web project with proper documentation and even added features I didn't ask for. The code was clean and they explained it so I could present it confidently in front of my panel. Really felt like they had my back.",
+    avatar: "/rev4.png",
+  },
+  {
+    id: 5,
+    name: "Mehedi Hasan",
+    role: "CSE Student, UAP",
+    text: "I needed a machine learning project for my capstone. They handled everything from dataset preparation to model training. They also gave me a simple explanation so I wasn't clueless during the viva. Genuinely one of the best decisions I made.",
+    avatar: "/rev5.png",
+  },
+  {
+    id: 6,
+    name: "Fariha Binte Karim",
+    role: "Architecture Student, IUBAT",
+    text: "I was struggling with my CAD drawings and project report at the same time. The team took over the report writing while I focused on the design work. The division of effort was perfect and my submission turned out really well.",
+    avatar: "/rev6.png",
   },
 ];
