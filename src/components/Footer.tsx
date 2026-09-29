@@ -8,7 +8,7 @@ const imgSvg13 = `${assetPathPrefix}/3feed.svg`;
 const imgContainer22 = `${assetPathPrefix}/7a19c.svg`;
 const imgContainer23 = `${assetPathPrefix}/d2c9e.svg`;
 const imgContainer24 = `${assetPathPrefix}/5cb60.svg`;
-const imgTopCTA = `${assetPathPrefix}/footer-cta.png`;
+const imgTopCTA = `${assetPathPrefix}/footer-cta2.png`;
 
 const servicesLinks = [
   "Project Development",
@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="relative z-10 w-full md:w-[58%] px-[24px] py-[32px] sm:px-[40px] lg:px-[52px] lg:py-[48px]">
             <div className="flex flex-col items-start pb-[22px]">
               <div className="font-['Plus_Jakarta_Sans:Medium'] font-medium leading-[1.12] text-[32px] sm:text-[40px] lg:text-[52px] xl:text-[60px] text-white tracking-normal">
-                <p className="mb-0">Let's Build Future</p>
+                <p className="mb-0">Let's Build Projects</p>
                 <p>Together.</p>
               </div>
             </div>
