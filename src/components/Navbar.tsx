@@ -48,9 +48,9 @@ export default function Navbar() {
       }
     } else if (item === "Contact") {
       if (!isHome) {
-        window.location.href = "/#footer";
+        window.location.href = "/#contact";
       } else {
-        document.getElementById("footer")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" });

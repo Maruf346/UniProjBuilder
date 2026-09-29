@@ -155,11 +155,12 @@ export default function FaqSection() {
 
       {/* Contact Us - full width contact form below */}
       <motion.div
+        id="contact"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.65}}
-        className="bg-[#081719] content-stretch flex flex-col items-start overflow-clip px-[24px] md:px-[48px] py-[80px] md:py-[112px] relative shrink-0 w-full mt-[80px] rounded-[16px]"
+        className="bg-[#081719] content-stretch flex flex-col items-start overflow-clip px-[24px] md:px-[48px] py-[80px] md:py-[112px] relative shrink-0 w-full mt-[80px] rounded-[16px] scroll-mt-24"
       >
         {/* Left SVG decorations */}
         <div className="absolute inset-0 overflow-clip pointer-events-none">
