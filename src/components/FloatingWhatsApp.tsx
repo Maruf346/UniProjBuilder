@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
+const brandLogo = "/assets/blogo.png";
+
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
@@ -53,17 +55,35 @@ export default function FloatingWhatsApp() {
           >
             <div className="flex shrink-0 items-center justify-between gap-3 bg-[#075e54] px-4 py-3.5 text-white">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="relative size-11 shrink-0 overflow-hidden rounded-full border border-white/20 bg-white p-0.5">
-                  <img
-                    src="/assets/blogo.png"
-                    alt=""
-                    className="size-full rounded-full object-contain"
-                  />
+                <div className="relative shrink-0">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/20 bg-white p-0.5">
+                    <img
+                      src={brandLogo}
+                      alt=""
+                      className="h-full w-full rounded-full object-contain"
+                    />
+                  </div>
+                  {/* Persistent unread badge on avatar */}
+                  <span
+                    className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-[10px] font-bold leading-none text-white shadow-md ring-2 ring-[#075e54]"
+                    aria-label="1 unread message"
+                  >
+                    1
+                  </span>
                 </div>
                 <div className="min-w-0">
-                  <h2 id="whatsapp-chat-title" className="truncate font-semibold">
-                    University Project Builder
-                  </h2>
+                  <div className="flex items-center gap-2">
+                    <h2
+                      id="whatsapp-chat-title"
+                      className="truncate font-semibold tracking-tight"
+                    >
+                      University Project Builder
+                    </h2>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2 py-0.5 text-[10px] font-medium text-emerald-200">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#25d366]" />
+                      Online
+                    </span>
+                  </div>
                   <p className="mt-0.5 truncate text-xs text-white/75">
                     Student project support
                   </p>
@@ -73,7 +93,7 @@ export default function FloatingWhatsApp() {
                 type="button"
                 aria-label="Close WhatsApp chat"
                 onClick={() => setIsOpen(false)}
-                className="grid size-9 shrink-0 place-items-center rounded-full text-xl leading-none text-white/90 transition-colors hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full text-xl leading-none text-white/90 transition-colors hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <span aria-hidden="true">×</span>
               </button>
@@ -93,13 +113,24 @@ export default function FloatingWhatsApp() {
                 </span>
               </div>
               <div className="max-w-[88%] rounded-2xl rounded-tl-sm bg-white px-3.5 py-3 text-sm leading-relaxed text-[#303b40] shadow-sm">
-                <p className="font-semibold text-[#075e54]">Assalamu alaikum!</p>
-                <p className="mt-1.5">
+                <div className="mb-1.5 flex items-center justify-between gap-2 border-b border-black/5 pb-1 text-[11px]">
+                  <span className="font-medium text-[#075e54]">
+                    Support Team
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-semibold text-red-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+                    1 unread
+                  </span>
+                </div>
+                <p className="font-medium text-[#075e54]">
+                  Assalamu alaikum! 👋
+                </p>
+                <p className="mt-1">
                   Need help with your university project? Send us a message and our team will be
                   happy to help.
                 </p>
                 <p className="mt-2 text-right text-[10px] text-[#8a969c]">
-                  University Project Builder
+                  Just now · University Project Builder
                 </p>
               </div>
             </div>
@@ -117,15 +148,20 @@ export default function FloatingWhatsApp() {
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   placeholder="Type a message"
-                  className="max-h-32 min-h-11 flex-1 resize-y rounded-full border border-transparent bg-white px-4 py-3 text-sm leading-relaxed outline-none placeholder:text-[#89959b] focus:border-[#25d366] focus:ring-2 focus:ring-[#25d366]/20"
+                  className="max-h-32 min-h-11 flex-1 resize-y rounded-full border border-transparent bg-white px-4 py-2.5 text-sm leading-relaxed outline-none placeholder:text-[#89959b] focus:border-[#25d366] focus:ring-2 focus:ring-[#25d366]/20"
                 />
                 <button
                   type="submit"
                   disabled={!message.trim()}
                   aria-label="Continue to WhatsApp with your message"
-                  className="grid size-11 shrink-0 place-items-center rounded-full bg-[#25d366] text-white transition-colors hover:bg-[#1fbd5b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c4a] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#25d366] text-white transition-colors hover:bg-[#1fbd5b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c4a] disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
                     <path d="M2.4 21.6 22 12 2.4 2.4 2 10l14 2-14 2z" />
                   </svg>
                 </button>
@@ -140,7 +176,11 @@ export default function FloatingWhatsApp() {
 
       <motion.button
         type="button"
-        aria-label={isOpen ? "Close WhatsApp chat" : "Open WhatsApp chat"}
+        aria-label={
+          isOpen
+            ? "Close WhatsApp chat"
+            : "Open WhatsApp chat (1 unread message)"
+        }
         aria-expanded={isOpen}
         aria-controls="whatsapp-chat-panel"
         onClick={() => setIsOpen((open) => !open)}
@@ -149,12 +189,28 @@ export default function FloatingWhatsApp() {
         whileHover={{ y: -3, scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="inline-flex min-h-14 items-center gap-2.5 rounded-full bg-[#25d366] px-4 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-colors hover:bg-[#1fbd5b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#128c4a] sm:px-5"
+        className="relative inline-flex min-h-14 items-center gap-2.5 rounded-full bg-[#25d366] px-4 text-sm font-semibold text-white shadow-lg shadow-black/20 transition-colors hover:bg-[#1fbd5b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#128c4a] sm:px-5"
       >
-        <svg className="size-6 shrink-0" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <svg
+          className="h-6 w-6 shrink-0"
+          viewBox="0 0 32 32"
+          fill="currentColor"
+          aria-hidden="true"
+        >
           <path d="M16.04 3C8.87 3 3.04 8.79 3.04 15.92c0 2.27.6 4.49 1.73 6.45L3 29l6.84-1.78a13.1 13.1 0 0 0 6.2 1.57h.01c7.16 0 13-5.8 13-12.92 0-3.45-1.35-6.69-3.8-9.12A12.9 12.9 0 0 0 16.04 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.56-1.52l-.4-.24-4.06 1.06 1.08-3.94-.26-.41a10.7 10.7 0 0 1-1.67-5.63c0-5.99 4.9-10.86 10.9-10.86 2.9 0 5.63 1.13 7.68 3.17a10.75 10.75 0 0 1 3.2 7.68c0 5.99-4.9 10.86-10.9 10.86Zm5.98-8.14c-.33-.16-1.94-.95-2.24-1.06-.3-.11-.52-.16-.74.16-.22.33-.85 1.06-1.04 1.28-.19.22-.38.25-.71.08-.33-.16-1.39-.51-2.65-1.63-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.5.14-.66.15-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.77-1.01-2.43-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.15 1.12-1.15 2.73 0 1.61 1.18 3.17 1.34 3.39.16.22 2.31 3.52 5.6 4.94.78.34 1.39.54 1.87.69.79.25 1.51.22 2.08.13.63-.09 1.94-.79 2.21-1.56.27-.77.27-1.42.19-1.56-.08-.14-.3-.22-.63-.38Z" />
         </svg>
         <span>WhatsApp</span>
+
+        {/* Persistent unread notification badge */}
+        <span
+          className="absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center pointer-events-none"
+          aria-hidden="true"
+        >
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
+          <span className="relative inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-xs font-bold leading-none text-white shadow-md ring-2 ring-white">
+            1
+          </span>
+        </span>
       </motion.button>
     </div>
   );
