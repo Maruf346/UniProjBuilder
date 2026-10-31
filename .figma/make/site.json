@@ -1,7 +1,15 @@
 {
-  "description": "Delivers a precise, user-friendly web app with a clean, organized structure for seamless navigation and efficient user interaction.",
+  "title": "University Project Builder Bangladesh | Project, Thesis & Viva Support",
+  "description": "University project development, thesis and report guidance, presentation design, and viva preparation for students across Bangladesh.",
+  "language": "en",
+  "icons": {
+    "icon": "/assets/logo.png"
+  },
+  "openGraph": {
+    "image": "/assets/Hero1.jpg"
+  },
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,

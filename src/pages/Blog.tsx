@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { blogFilters, blogPosts, type BlogPost } from "../data/blogs";
+import Seo, { SITE_NAME, SITE_URL } from "../components/Seo";
 
 const asset = (name: string) => `/assets/${name}`;
 
@@ -49,7 +50,7 @@ const fadeUp = {
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 const staggerContainer = {
@@ -58,7 +59,7 @@ const staggerContainer = {
 };
 const cardVariant = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export default function Blog() {
@@ -91,6 +92,33 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-[#f8faf9] font-['Plus_Jakarta_Sans:Regular'] text-[#0f1e36]">
+      <Seo
+        title="University Project & Thesis Guides Bangladesh (2026)"
+        description="Practical 2026 guides for final year CSE projects, thesis and project reports, presentation slides, IEEE documentation, and viva preparation in Bangladesh."
+        path="/blog"
+        image="/assets/viva.jpg"
+        keywords={[
+          "final year project ideas for CSE students 2026",
+          "university project help Bangladesh",
+          "thesis writing guide Bangladesh",
+          "project report format",
+          "viva questions for final year project",
+          "thesis presentation Bangladesh",
+        ]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: `${SITE_NAME} Guides`,
+          url: `${SITE_URL}/blog`,
+          description: "Project, thesis, report, presentation and viva guides for university students in Bangladesh.",
+          blogPost: blogPosts.map((post) => ({
+            "@type": "BlogPosting",
+            headline: post.title,
+            url: `${SITE_URL}/blog/${post.slug}`,
+            image: `${SITE_URL}/assets/${post.image}`,
+          })),
+        }}
+      />
       <Navbar />
       <main className="pt-20">
         {/* Header */}

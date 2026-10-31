@@ -50,6 +50,11 @@ export interface BlogPost {
   image: string;
   figureCaption: string;
   summary: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string[];
+  datePublished?: string;
+  dateModified?: string;
   featured?: boolean;
   metrics: MetricItem[];
   specs: SpecItem[];
@@ -87,6 +92,219 @@ export const blogFilters = [
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "best-university-project-help-bangladesh-2026",
+    title: "Best University Project Help in Bangladesh (2026): What to Check Before You Choose",
+    seoTitle: "Best University Project Help in Bangladesh (2026 Guide)",
+    seoDescription: "Compare university project help in Bangladesh using practical 2026 criteria: technical scope, documentation, originality, revision support, viva preparation, and handover quality.",
+    keywords: [
+      "best university project help Bangladesh 2026",
+      "university project development Bangladesh",
+      "CSE project help Bangladesh",
+      "final year project support",
+      "thesis and project report help",
+      "viva preparation Bangladesh",
+    ],
+    datePublished: "2026-10-31",
+    dateModified: "2026-10-31",
+    day: "31",
+    month: "OCT",
+    category: "Web & Software",
+    subCategory: "Bangladesh • Project Planning • Buyer Guide",
+    author: "University Project Builder Editorial Team",
+    authorRole: "Project Mentors & Technical Reviewers",
+    time: "9 min read",
+    image: "help.png",
+    figureCaption: "Figure 1: A practical checklist for comparing university project guidance in Bangladesh.",
+    featured: true,
+    summary: "A transparent guide to choosing project support in Bangladesh without relying on vague 'best' claims. Compare technical fit, milestone visibility, documentation, originality, revisions, and viva coaching.",
+    tags: ["Project Help Bangladesh", "Final Year Project", "CSE Project", "Viva Preparation"],
+    metrics: [
+      { label: "CORE CHECKS", value: "8", subtext: "Before selecting a project mentor", color: "#10b981" },
+      { label: "MINIMUM MILESTONES", value: "4", subtext: "Proposal, prototype, testing, handover" },
+      { label: "HANDOVER", value: "Code + Report", subtext: "Both must match the final build" },
+      { label: "VIVA READY", value: "Required", subtext: "You should be able to explain every choice", color: "#005f62" },
+    ],
+    specs: [
+      { label: "Best For:", value: "CSE, SWE, EEE, IT & Business Students" },
+      { label: "Typical Support:", value: "Planning, Build Guidance, Report & Viva" },
+      { label: "Quality Signal:", value: "Working Milestones + Clear Explanations", highlight: true },
+      { label: "Warning Sign:", value: "Copied Demo or Unexplained Source Code" },
+      { label: "Location:", value: "Online Support Across Bangladesh" },
+    ],
+    pipeline: [
+      { step: "01", title: "Scope Review" },
+      { step: "02", title: "Prototype Milestone", highlight: true },
+      { step: "03", title: "Testing & Report" },
+      { step: "04", title: "Handover & Viva" },
+    ],
+    vivaQuestions: [
+      {
+        question: "How do I know whether a project support team understands my exact domain?",
+        answer: "Ask them to explain the proposed architecture, dataset or hardware plan, evaluation method, and likely risks before work begins. A credible mentor should discuss trade-offs instead of promising every feature immediately.",
+      },
+      {
+        question: "What should I receive at final handover?",
+        answer: "The working source code or hardware files, setup instructions, database or dataset details, test evidence, report assets, presentation slides where included, and a walkthrough that lets you reproduce and explain the result.",
+      },
+      {
+        question: "Is the cheapest project service usually the best option?",
+        answer: "Not necessarily. Compare the complete scope, number of revisions, mentor access, documentation quality, delivery milestones, and post-handover explanation. A low initial quote can exclude essential report or viva work.",
+      },
+    ],
+    artifacts: [
+      { title: "Project Provider Comparison Checklist", description: "A practical list covering scope, originality, milestones, testing, documentation, revisions and viva support.", icon: "matrix" },
+      { title: "Project Handover Checklist", description: "Source code, setup guide, report assets, testing evidence and defense preparation items to verify before delivery.", icon: "report" },
+    ],
+    content: {
+      introduction: "Searches for the best university project help in Bangladesh often lead to bold claims but very little evidence. The right choice depends on your department, project type, deadline, current skill level, and what your supervisor expects. Use measurable checks instead of choosing only by price or social-media promises.",
+      sections: [
+        {
+          heading: "1. Match the Team to Your Actual Project Domain",
+          body: [
+            "Start by defining whether you need a full-stack application, AI or machine-learning implementation, IoT prototype, data analysis, business research, thesis report, or presentation support. A team that is strong in websites may not be qualified to design an experiment or debug sensor hardware.",
+            "Ask for a short technical plan before committing. It should identify the problem, users, core modules, proposed stack, data or hardware requirements, evaluation method, and realistic delivery stages. This conversation is a better quality signal than a gallery of screenshots.",
+          ],
+          tips: [
+            "Request a project-specific architecture explanation.",
+            "Confirm who will answer technical questions during the build.",
+            "Check that the scope fits your semester and team size.",
+          ],
+        },
+        {
+          heading: "2. Demand Visible Milestones, Original Work and Documentation",
+          body: [
+            "A dependable process should produce reviewable milestones: approved scope, early prototype, feature-complete build, testing, report alignment, and final handover. You should be able to see progress and give supervisor feedback before the deadline week.",
+            "The source code, diagrams, test results, report and slides must describe the same system. Avoid providers who offer a recycled project with a renamed title, cannot explain the code, or promise a plagiarism percentage without explaining how sources and citations are handled.",
+          ],
+          tips: [
+            "Ask how supervisor revisions are tracked and priced.",
+            "Verify that diagrams and screenshots match the final build.",
+            "Keep your own copies of every milestone and approval.",
+          ],
+        },
+        {
+          heading: "3. Treat Viva Preparation as Part of Delivery",
+          body: [
+            "A final-year project is not complete when the software runs. You need to explain the problem statement, methodology, architecture, database or dataset, testing results, limitations, and future work in your own words.",
+            "Before choosing any project help service in Bangladesh, confirm that the handover includes a setup walkthrough and question practice. The strongest support helps you understand and improve your work; it does not leave you dependent on someone else on defense day.",
+          ],
+          tips: [
+            "Rehearse a 60-second problem-and-solution summary.",
+            "Prepare an offline demo or recorded fallback.",
+            "Know at least three limitations and future improvements.",
+          ],
+        },
+      ],
+      conclusion: "The best university project help in Bangladesh is the option that fits your discipline, shows progress clearly, protects originality, aligns the report with the implementation, and leaves you able to defend the work. Compare those outcomes in writing before you decide.",
+    },
+  },
+  {
+    slug: "best-final-year-project-ideas-cse-students-bangladesh-2026",
+    title: "Best Final Year Project Ideas for CSE Students in Bangladesh (2026)",
+    seoTitle: "Best Final Year Project Ideas for CSE Students Bangladesh 2026",
+    seoDescription: "Explore practical 2026 final year project ideas for CSE students in Bangladesh across AI, full-stack, cybersecurity and IoT, with scope, datasets and viva-ready evaluation tips.",
+    keywords: [
+      "best final year project ideas for CSE students 2026",
+      "CSE project ideas Bangladesh",
+      "final year project topics for computer science",
+      "AI project ideas for students",
+      "web development final year project",
+      "IoT project ideas Bangladesh",
+    ],
+    datePublished: "2026-10-31",
+    dateModified: "2026-10-31",
+    day: "31",
+    month: "OCT",
+    category: "AI & Machine Learning",
+    subCategory: "CSE • SWE • Bangladesh • 2026",
+    author: "Engr. Tanvir Ahmed",
+    authorRole: "Senior Academic Mentor & Technical Reviewer",
+    time: "11 min read",
+    image: "cse.jpg",
+    figureCaption: "Figure 1: CSE final year project directions selected for measurable results and realistic delivery in Bangladesh.",
+    summary: "A Bangladesh-focused shortlist of buildable CSE capstone ideas for 2026, including AI, full-stack, cybersecurity and IoT options with clear evaluation methods for reports and viva defense.",
+    tags: ["CSE Project Ideas", "Final Year Project 2026", "Bangladesh", "AI Projects"],
+    metrics: [
+      { label: "PROJECT DIRECTIONS", value: "12", subtext: "Across four high-demand domains", color: "#10b981" },
+      { label: "IDEAL TEAM", value: "2-4", subtext: "Students with clear role ownership" },
+      { label: "MVP TARGET", value: "6 Weeks", subtext: "Then measure, test and document" },
+      { label: "KEY OUTPUT", value: "Evidence", subtext: "Metrics matter more than feature count", color: "#005f62" },
+    ],
+    specs: [
+      { label: "Audience:", value: "Final Year CSE, CS, SWE & IT Students" },
+      { label: "Domains:", value: "AI/ML, Web, Cybersecurity & IoT" },
+      { label: "Selection Rule:", value: "Real Problem + Available Data + Measurable Result", highlight: true },
+      { label: "Recommended Scope:", value: "3 Core Features + 1 Evaluation Plan" },
+      { label: "Academic Year:", value: "2026" },
+    ],
+    pipeline: [
+      { step: "01", title: "Problem & Users" },
+      { step: "02", title: "Dataset / Stack" },
+      { step: "03", title: "MVP in 6 Weeks", highlight: true },
+      { step: "04", title: "Evaluate & Defend" },
+    ],
+    vivaQuestions: [
+      {
+        question: "Why is this project more than a basic management system?",
+        answer: "Explain the non-trivial contribution: a prediction model, optimization rule, security control, real-time pipeline, Bangla-language dataset, accessibility improvement, or measured operational benefit.",
+      },
+      {
+        question: "How will you prove that the project works?",
+        answer: "Define evidence before implementation: task completion rate, response time, precision and recall, false-positive rate, energy consumption, usability testing, or comparison against a simple baseline.",
+      },
+      {
+        question: "Why is the project relevant to Bangladesh?",
+        answer: "Connect the system to a local user, dataset, language, infrastructure constraint, campus workflow, agriculture problem, transport issue, or service gap, and state what you verified rather than assuming demand.",
+      },
+    ],
+    artifacts: [
+      { title: "CSE Project Idea Selection Matrix", description: "Compare complexity, data availability, hardware cost, implementation risk and evaluation strength before topic approval.", icon: "matrix" },
+      { title: "Proposal and Evaluation Worksheet", description: "Turn an idea into a problem statement, objectives, methodology, milestones and measurable success criteria.", icon: "report" },
+    ],
+    content: {
+      introduction: "The best final year project ideas for CSE students in Bangladesh are not simply the newest technologies. A strong 2026 topic solves a specific problem, uses data or hardware you can actually access, fits one or two semesters, and produces results you can measure and defend.",
+      sections: [
+        {
+          heading: "1. AI and Machine Learning Projects with Local Relevance",
+          body: [
+            "Promising directions include Bangla document question answering with retrieval evaluation, crop disease detection tested on locally captured images, phishing URL classification with false-positive analysis, Bangla news claim classification, and student-risk analytics using anonymized records with permission.",
+            "Do not stop at training one model and showing accuracy. Compare a simple baseline with your proposed model, use a separate test set, report precision, recall and F1 where appropriate, and discuss errors, bias, privacy and data limitations.",
+          ],
+          tips: [
+            "Bangla university document assistant with a 30-question test set.",
+            "Crop disease detector tested on phone images from local conditions.",
+            "Phishing detector with a browser demo and false-positive report.",
+          ],
+        },
+        {
+          heading: "2. Full-Stack, Cybersecurity and Campus Systems",
+          body: [
+            "Useful software topics include a campus event platform with QR attendance, lab equipment booking with audit logs, accessible bus tracking, blood donor matching with consent controls, secure document sharing with expiring links, and a complaint-routing portal with response-time analytics.",
+            "A plain CRUD application is rarely enough for a strong capstone. Add one meaningful technical challenge such as real-time updates, offline sync, route optimization, role-based access tests, accessibility measurement, search ranking, fraud controls, or operational analytics.",
+          ],
+          tips: [
+            "Limit the MVP to three complete user journeys.",
+            "Add automated tests for permissions and critical actions.",
+            "Measure performance and usability instead of counting pages.",
+          ],
+        },
+        {
+          heading: "3. IoT and Smart-System Ideas You Can Demonstrate Reliably",
+          body: [
+            "Buildable IoT directions include classroom energy monitoring, flood or water-level alerts, cold-chain temperature logging, smart irrigation, air-quality monitoring, and accessible indoor navigation. Choose sensors available locally and calculate the complete hardware cost before proposal approval.",
+            "Your report should compare sensor readings with a reference device, explain calibration, show packet loss or power use, and include a fallback for unreliable internet. A smaller reliable prototype with measured results is stronger than a large system that only works during ideal conditions.",
+          ],
+          tips: [
+            "Log raw sensor values so results can be reproduced.",
+            "Plan an offline demo for defense day.",
+            "Document safety, calibration and power limitations.",
+          ],
+        },
+      ],
+      conclusion: "Choose a 2026 CSE project by naming the user, the hardest technical question, the data or hardware source, and the metric that will prove success. If you cannot answer all four, narrow the idea before writing the proposal.",
+    },
+  },
+  {
     slug: "top-25-viva-defense-questions-university-projects",
     title: "The Viva Defense Masterclass: 25 Questions Supervisors Always Ask",
     day: "15",
@@ -98,7 +316,7 @@ export const blogPosts: BlogPost[] = [
     time: "8 min read",
     image: "viva.jpg",
     figureCaption: "Figure 1: Typical university viva examination panel evaluating architecture diagrams & live software demonstrations.",
-    featured: true,
+    featured: false,
     summary: "A practical guide to acing your university final year project defense. Master how to explain your architecture, justify technical decisions, and answer tough panel inquiries.",
     tags: ["Viva Defense", "Final Year Project", "CSE", "University Thesis"],
     metrics: [

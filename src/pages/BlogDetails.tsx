@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { blogPosts, type BlogPost } from "../data/blogs";
+import Seo, { SITE_NAME, SITE_URL } from "../components/Seo";
 
 interface BlogDetailsProps { slug: string; }
 const asset = (name: string) => `/assets/${name}`;
@@ -42,15 +43,21 @@ function ArtifactIcon({ title }: { title: string }) {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] } }),
+  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const } }),
 };
 const slideLeft = {
   hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
+const monthNumbers: Record<string, string> = {
+  JAN: "01", FEB: "02", MAR: "03", APR: "04", MAY: "05", JUN: "06",
+  JUL: "07", AUG: "08", SEP: "09", OCT: "10", NOV: "11", DEC: "12",
 };
 
 export default function BlogDetails({ slug }: BlogDetailsProps) {
   const post = blogPosts.find((p) => p.slug === slug) || blogPosts[0];
+  const derivedPublishedDate = `2026-${monthNumbers[post.month] || "01"}-${post.day.padStart(2, "0")}`;
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [slug]);
   const currentIndex = blogPosts.findIndex((p) => p.slug === post.slug);
   const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
@@ -59,6 +66,43 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
 
   return (
     <div className="min-h-screen bg-[#f8faf9] font-['Plus_Jakarta_Sans:Regular'] text-[#0f1e36]">
+      <Seo
+        title={`${post.seoTitle || post.title} | ${SITE_NAME}`}
+        description={post.seoDescription || post.summary}
+        path={`/blog/${post.slug}`}
+        image={`/assets/${post.image}`}
+        type="article"
+        keywords={post.keywords || post.tags}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.seoDescription || post.summary,
+            image: `${SITE_URL}/assets/${post.image}`,
+            datePublished: post.datePublished || derivedPublishedDate,
+            dateModified: post.dateModified || post.datePublished || derivedPublishedDate,
+            author: { "@type": "Person", name: post.author },
+            publisher: {
+              "@type": "Organization",
+              name: SITE_NAME,
+              logo: { "@type": "ImageObject", url: `${SITE_URL}/assets/logo.png` },
+            },
+            mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+            keywords: (post.keywords || post.tags).join(", "),
+            inLanguage: "en-BD",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+              { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+            ],
+          },
+        ]}
+      />
       <Navbar />
       <main className="pt-28 pb-20">
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">

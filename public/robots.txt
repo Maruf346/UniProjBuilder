@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uniprojectbuilder.qoderlabs.com/sitemap.xml
+
